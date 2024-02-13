@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// `UIAlertController`の作成を
+/// `UIAlertController`の生成を行う
 struct AlertMaker {
     /// 再試行/キャンセルの選択肢を持つアラートを作成する
     static func retryOrCancelAlert(
