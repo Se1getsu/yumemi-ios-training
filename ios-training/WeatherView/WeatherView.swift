@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  WeatherView.swift
 //  ios-training
 //
 //  Created by 垣本 桃弥 on 2024/02/13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainView: UIView {
+final class WeatherView: UIView {
     // MARK: UI
     let weatherImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,7 +60,7 @@ final class MainView: UIView {
     }
 }
 
-private extension MainView {
+private extension WeatherView {
     /// UIをaddSubViewする処理
     func addSubviewUIs() {
         addSubview(weatherImageView)
@@ -111,7 +111,7 @@ private extension MainView {
 }
 
 #Preview("UIKit") {
-    return MainViewController(
+    return WeatherViewController(
         weatherRepository: WeatherRepository(),
         weatherImageRepository: WeatherImageRepository()
     )

@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  WeatherViewController.swift
 //  ios-training
 //
 //  Created by 垣本 桃弥 on 2024/02/13.
@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+/// 天気を表示する画面
+class WeatherViewController: UIViewController {
     // MARK: 依存
-    private let myView = MainView()
+    private let myView = WeatherView()
     private let weatherRepository: WeatherRepository
     private let weatherImageRepository: WeatherImageRepository
     
@@ -37,7 +38,7 @@ class MainViewController: UIViewController {
     }
 }
 
-private extension MainViewController {
+private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
         let weather = weatherRepository.fetch()
