@@ -9,13 +9,13 @@ import UIKit
 
 final class MainView: UIView {
     // MARK: UI
-    private let weatherImageView: UIImageView = {
+    let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let minimumTemperatureLabel: UILabel = {
+    let minimumTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
         label.font = .preferredFont(forTextStyle: .body)
@@ -24,7 +24,7 @@ final class MainView: UIView {
         return label
     }()
     
-    private let highTemperatureLabel: UILabel = {
+    let highTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemRed
         label.font = .preferredFont(forTextStyle: .body)
@@ -33,14 +33,14 @@ final class MainView: UIView {
         return label
     }()
     
-    private let closeButton: UIButton = {
+    let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("Close", for: .normal)
         button.setTitleColor(.tintColor, for: .normal)
         return button
     }()
     
-    private let reloadButton: UIButton = {
+    let reloadButton: UIButton = {
         let button = UIButton()
         button.setTitle("Reload", for: .normal)
         button.setTitleColor(.tintColor, for: .normal)
@@ -111,5 +111,8 @@ private extension MainView {
 }
 
 #Preview("UIKit") {
-    return MainViewController()
+    return MainViewController(
+        weatherRepository: WeatherRepository(),
+        weatherImageRepository: WeatherImageRepository()
+    )
 }
