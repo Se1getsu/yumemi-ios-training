@@ -21,6 +21,7 @@
 		C96970952B7B353F00AC4675 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970942B7B353F00AC4675 /* Weather.swift */; };
 		C96970992B7B38D500AC4675 /* WeatherImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970982B7B38D500AC4675 /* WeatherImageRepository.swift */; };
 		C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */; };
+		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C96970942B7B353F00AC4675 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C96970982B7B38D500AC4675 /* WeatherImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImageRepository.swift; sourceTree = "<group>"; };
 		C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewEventHandler.swift; sourceTree = "<group>"; };
+		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C96970972B7B36EE00AC4675 /* Entity */,
 				C96970962B7B36D100AC4675 /* Repotitory */,
 				C969709A2B7B3F2700AC4675 /* WeatherView */,
+				C99C9C9A2B7B65690090D5D0 /* Util */,
 				C96970582B7AFDDF00AC4675 /* AppDelegate.swift */,
 				C969705A2B7AFDDF00AC4675 /* SceneDelegate.swift */,
 				C96970612B7AFDE000AC4675 /* Assets.xcassets */,
@@ -163,6 +166,14 @@
 				C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */,
 			);
 			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		C99C9C9A2B7B65690090D5D0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 				C969708F2B7B284800AC4675 /* WeatherView.swift in Sources */,
 				C96970912B7B348500AC4675 /* WeatherRepository.swift in Sources */,
 				C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */,
+				C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */,
 				C96970592B7AFDDF00AC4675 /* AppDelegate.swift in Sources */,
 				C96970992B7B38D500AC4675 /* WeatherImageRepository.swift in Sources */,
 				C96970952B7B353F00AC4675 /* Weather.swift in Sources */,
