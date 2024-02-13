@@ -143,6 +143,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C969708D2B7B247100AC4675 /* PBXTargetDependency */,
 			);
 			name = "ios-training";
 			packageProductDependencies = (
@@ -222,6 +223,7 @@
 			mainGroup = C969704C2B7AFDDF00AC4675;
 			packageReferences = (
 				C96970882B7AFE4400AC4675 /* XCRemoteSwiftPackageReference "ios-training" */,
+				C969708B2B7B240600AC4675 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = C96970562B7AFDDF00AC4675 /* Products */;
 			projectDirPath = "";
@@ -301,6 +303,10 @@
 			isa = PBXTargetDependency;
 			target = C96970542B7AFDDF00AC4675 /* ios-training */;
 			targetProxy = C96970762B7AFDE000AC4675 /* PBXContainerItemProxy */;
+		};
+		C969708D2B7B247100AC4675 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = C969708C2B7B247100AC4675 /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -625,6 +631,14 @@
 				kind = branch;
 			};
 		};
+		C969708B2B7B240600AC4675 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -632,6 +646,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C96970882B7AFE4400AC4675 /* XCRemoteSwiftPackageReference "ios-training" */;
 			productName = YumemiWeather;
+		};
+		C969708C2B7B247100AC4675 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C969708B2B7B240600AC4675 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
