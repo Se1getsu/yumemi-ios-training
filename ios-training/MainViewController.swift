@@ -42,5 +42,6 @@ private extension MainViewController {
     func loadWeather() {
         let weather = weatherRepository.fetch()
         myView.weatherImageView.image = weatherImageRepository.image(for: weather)
+        myView.weatherImageView.tintColor = weather.imageTint
     }
 }
