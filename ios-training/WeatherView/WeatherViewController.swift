@@ -55,6 +55,7 @@ extension WeatherViewController: WeatherViewEventHandler {
 private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
+        myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
             if let weather = try weatherRepository.fetch(at: "tokyo") {
@@ -65,8 +66,6 @@ private extension WeatherViewController {
                 myView.weatherImagePlaceholderLabel.isHidden = false
             }
         } catch {
-            myView.weatherImagePlaceholderLabel.text = "取得エラー"
-            myView.weatherImagePlaceholderLabel.isHidden = false
             let alert = AlertMaker.retryOrCancelAlert(
                 title: "天気の取得に失敗しました",
                 message: "再試行しますか？",
@@ -76,7 +75,8 @@ private extension WeatherViewController {
                 didTapCancel: nil
             )
             present(alert, animated: true)
-            myView.weatherImageView.image = nil
+            myView.weatherImagePlaceholderLabel.text = "取得エラー"
+            myView.weatherImagePlaceholderLabel.isHidden = false
         }
     }
     
