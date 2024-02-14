@@ -60,3 +60,10 @@ private extension WeatherViewController {
         }
     }
 }
+
+#Preview("UIKit") {
+    return WeatherViewController(
+        weatherRepository: WeatherRepository(),
+        weatherImageRepository: WeatherImageRepository()
+    )
+}

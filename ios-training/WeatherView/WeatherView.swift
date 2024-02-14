@@ -9,6 +9,12 @@ import UIKit
 
 final class WeatherView: UIView {
     // MARK: UI
+    let weatherFrame: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -63,6 +69,7 @@ final class WeatherView: UIView {
 private extension WeatherView {
     /// UIをaddSubViewする処理
     func addSubviewUIs() {
+        addSubview(weatherFrame)
         addSubview(weatherImageView)
         addSubview(minimumTemperatureLabel)
         addSubview(highTemperatureLabel)
@@ -74,17 +81,25 @@ private extension WeatherView {
     func setUpLayout() {
         let safeArea = safeAreaLayoutGuide
         
+        weatherFrame.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            weatherFrame.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            weatherFrame.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+            weatherFrame.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5)
+        ])
+        
         weatherImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            weatherImageView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            weatherImageView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-            weatherImageView.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5),
+            weatherImageView.topAnchor.constraint(equalTo: weatherFrame.topAnchor),
+            weatherImageView.centerXAnchor.constraint(equalTo: weatherFrame.centerXAnchor),
+            weatherImageView.widthAnchor.constraint(equalTo: weatherFrame.widthAnchor),
             weatherImageView.heightAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 1.0)
         ])
         
         minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             minimumTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
+            minimumTemperatureLabel.bottomAnchor.constraint(equalTo: weatherFrame.bottomAnchor),
             minimumTemperatureLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
             minimumTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
         ])
@@ -108,11 +123,4 @@ private extension WeatherView {
             reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
         ])
     }
-}
-
-#Preview("UIKit") {
-    return WeatherViewController(
-        weatherRepository: WeatherRepository(),
-        weatherImageRepository: WeatherImageRepository()
-    )
 }
