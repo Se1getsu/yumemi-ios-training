@@ -12,17 +12,8 @@ opt_in_rules:
 disabled_rules:
   - identifier_name
   - trailing_whitespace
-  - force_cast
-  - force_try
-  - function_body_length
-  - todo
 
 line_length:
   warning: 180
   error: 240
   ignores_comments: true
-
-included:
-  - iOSEngineerCodeCheck
-
-excluded:
