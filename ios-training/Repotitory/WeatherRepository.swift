@@ -21,15 +21,15 @@ struct WeatherRepository {
     
     /// 天気を取得する
     /// - throws: 取得に失敗した場合は YumemiWeatherError、予期せぬものを取得した場合は WeatherRepository.APIError を返す
-    func fetch(at area: String, date: Date) throws -> Weather {
+    func fetch(at area: String, date: Date) throws -> WeatherInfo {
         let query = WeatherAPIQuery(area: area, date: date)
         let queryJSONString = try encodeQuery(query)
         let responseJSONString = try YumemiWeather.fetchWeather(queryJSONString)
-        let weatherAPIResponse = try decodeResponse(responseJSONString)
-        guard let weather = Weather(rawValue: weatherAPIResponse.weatherCondition) else {
+        let response = try decodeResponse(responseJSONString)
+        guard let weatherInfo = WeatherInfo(from: response) else {
             throw APIError.undefinedWeather
         }
-        return weather
+        return weatherInfo
     }
 }
 

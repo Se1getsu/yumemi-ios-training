@@ -51,9 +51,9 @@ private extension WeatherViewController {
         myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
-            let weather = try weatherRepository.fetch(at: "tokyo", date: Date())
-            myView.weatherImageView.image = .weatherImage(for: weather)
-            myView.weatherImageView.tintColor = imageTint(for: weather)
+            let weatherInfo = try weatherRepository.fetch(at: "tokyo", date: Date())
+            myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+            myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
         } catch {
             let alert = AlertMaker.retryOrCancelAlert(
                 title: "天気の取得に失敗しました",
