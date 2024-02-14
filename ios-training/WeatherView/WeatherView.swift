@@ -8,7 +8,9 @@
 import UIKit
 
 final class WeatherView: UIView {
-    // MARK: UI
+    
+    // MARK: Properties - UI
+    
     let weatherFrame: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -62,7 +64,8 @@ final class WeatherView: UIView {
         return button
     }()
     
-    // MARK: メソッド
+    // MARK: Lifecycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -74,6 +77,8 @@ final class WeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: Private
 
 private extension WeatherView {
     /// UIをaddSubViewする処理

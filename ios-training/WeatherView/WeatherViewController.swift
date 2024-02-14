@@ -9,12 +9,15 @@ import UIKit
 
 /// 天気を表示する画面
 class WeatherViewController: UIViewController {
-    // MARK: 依存
+    
+    // MARK: Dependency
+    
     private let myView = WeatherView()
     private let weatherRepository: WeatherRepository
     private let weatherImageRepository: WeatherImageRepository
     
-    // MARK: メソッド
+    // MARK: Lifecycle
+    
     init(weatherRepository: WeatherRepository, weatherImageRepository: WeatherImageRepository) {
         self.weatherRepository = weatherRepository
         self.weatherImageRepository = weatherImageRepository
@@ -36,10 +39,14 @@ class WeatherViewController: UIViewController {
         loadWeather()
     }
     
+    // MARK: Internal
+    
     @objc func didTapReloadButton() {
         loadWeather()
     }
 }
+
+// MARK: Private
 
 private extension WeatherViewController {
     /// 天気を読み込む
@@ -66,6 +73,8 @@ private extension WeatherViewController {
         }
     }
 }
+
+// MARK: Preview
 
 #Preview("UIKit") {
     return WeatherViewController(
