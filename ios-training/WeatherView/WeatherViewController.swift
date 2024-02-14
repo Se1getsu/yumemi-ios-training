@@ -9,9 +9,12 @@ import UIKit
 
 /// 天気を表示する画面
 class WeatherViewController: UIViewController {
-    // MARK: Dependency
+    // MARK: Properties
     
     private let myView = WeatherView()
+    
+    // MARK: Dependencies
+    
     private let weatherRepository: WeatherRepository
     private let weatherImageRepository: WeatherImageRepository
     
