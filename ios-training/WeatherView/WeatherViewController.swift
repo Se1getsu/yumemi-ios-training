@@ -44,9 +44,14 @@ class WeatherViewController: UIViewController {
 private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
-        guard let weather = weatherRepository.fetch() else { return }
-        myView.weatherImageView.image = weatherImageRepository.image(for: weather)
-        myView.weatherImageView.tintColor = imageTint(for: weather)
+        myView.weatherImagePlaceholderLabel.isHidden = true
+        if let weather = weatherRepository.fetch() {
+            myView.weatherImageView.image = weatherImageRepository.image(for: weather)
+            myView.weatherImageView.tintColor = imageTint(for: weather)
+        } else {
+            myView.weatherImagePlaceholderLabel.text = "未定義の天気"
+            myView.weatherImagePlaceholderLabel.isHidden = false
+        }
     }
     
     /// `weatherImageView.tintColor` に指定するための色を返す。

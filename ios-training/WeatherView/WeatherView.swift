@@ -21,6 +21,15 @@ final class WeatherView: UIView {
         return imageView
     }()
     
+    let weatherImagePlaceholderLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.textAlignment = .center
+        label.isHidden = true
+        return label
+    }()
+    
     let minimumTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
@@ -71,6 +80,7 @@ private extension WeatherView {
     func addSubviewUIs() {
         addSubview(weatherFrame)
         addSubview(weatherImageView)
+        addSubview(weatherImagePlaceholderLabel)
         addSubview(minimumTemperatureLabel)
         addSubview(highTemperatureLabel)
         addSubview(closeButton)
@@ -94,6 +104,14 @@ private extension WeatherView {
             weatherImageView.centerXAnchor.constraint(equalTo: weatherFrame.centerXAnchor),
             weatherImageView.widthAnchor.constraint(equalTo: weatherFrame.widthAnchor),
             weatherImageView.heightAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 1.0)
+        ])
+        
+        weatherImagePlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            weatherImagePlaceholderLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
+            weatherImagePlaceholderLabel.bottomAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
+            weatherImagePlaceholderLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
+            weatherImagePlaceholderLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor)
         ])
         
         minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
