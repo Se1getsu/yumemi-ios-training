@@ -43,6 +43,20 @@ private extension WeatherViewController {
     func loadWeather() {
         let weather = weatherRepository.fetch()
         myView.weatherImageView.image = weatherImageRepository.image(for: weather)
-        myView.weatherImageView.tintColor = weather.imageTint
+        myView.weatherImageView.tintColor = imageTint(for: weather)
+    }
+    
+    /// `weatherImageView.tintColor` に指定するための色を返す。
+    func imageTint(for weather: Weather) -> UIColor? {
+        switch weather {
+        case .sunny:
+            UIColor.systemRed
+        case .cloudy:
+            UIColor.systemGray
+        case .rainy:
+            UIColor.tintColor
+        case .unknown:
+            nil
+        }
     }
 }
