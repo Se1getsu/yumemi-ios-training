@@ -54,6 +54,8 @@ private extension WeatherViewController {
             let weatherInfo = try weatherRepository.fetch(at: "tokyo", date: Date())
             myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
             myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
+            myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+            myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
         } catch {
             let alert = AlertMaker.retryOrCancelAlert(
                 title: "天気の取得に失敗しました",
@@ -64,8 +66,11 @@ private extension WeatherViewController {
                 didTapCancel: nil
             )
             present(alert, animated: true)
+            myView.weatherImageView.image = nil
             myView.weatherImagePlaceholderLabel.text = "取得エラー"
             myView.weatherImagePlaceholderLabel.isHidden = false
+            myView.minimumTemperatureLabel.text = "--"
+            myView.highTemperatureLabel.text = "--"
         }
     }
     
