@@ -21,11 +21,47 @@ struct WeatherRepository {
     
     /// 天気を取得する
     /// - throws: 取得に失敗した場合は YumemiWeatherError、予期せぬものを取得した場合は WeatherRepository.APIError を返す
-    func fetch(at area: String) throws -> Weather {
-        let weatherString = try YumemiWeather.fetchWeatherCondition(at: area)
-        guard let weather = Weather(rawValue: weatherString) else {
+    func fetch(at area: String, date: Date) throws -> Weather {
+        let query = WeatherAPIQuery(area: area, date: date)
+        let queryJSONString = try encodeQuery(query)
+        let responseJSONString = try YumemiWeather.fetchWeather(queryJSONString)
+        let weatherAPIResponse = try decodeResponse(responseJSONString)
+        guard let weather = Weather(rawValue: weatherAPIResponse.weatherCondition) else {
             throw APIError.undefinedWeather
         }
         return weather
+    }
+}
+
+private extension WeatherRepository {
+    // MARK: Private
+    
+    private static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        return dateFormatter
+    }()
+    
+    private static let encoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        return encoder
+    }()
+    
+    private static let decoder: JSONDecoder = {
+        let decorder = JSONDecoder()
+        decorder.keyDecodingStrategy = .convertFromSnakeCase
+        decorder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decorder
+    }()
+    
+    func encodeQuery(_ query: WeatherAPIQuery) throws -> String {
+        let queryData = try WeatherRepository.encoder.encode(query)
+        return String(data: queryData, encoding: .utf8)!
+    }
+    
+    func decodeResponse(_ jsonString: String) throws -> WeatherAPIResponse {
+        let data = jsonString.data(using: .utf8)!
+        return try WeatherRepository.decoder.decode(WeatherAPIResponse.self, from: data)
     }
 }

@@ -51,7 +51,7 @@ private extension WeatherViewController {
         myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
-            let weather = try weatherRepository.fetch(at: "tokyo")
+            let weather = try weatherRepository.fetch(at: "tokyo", date: Date())
             myView.weatherImageView.image = .weatherImage(for: weather)
             myView.weatherImageView.tintColor = imageTint(for: weather)
         } catch {
