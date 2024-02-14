@@ -11,10 +11,14 @@ import UIKit.UIImage
 struct WeatherImageRepository {
     func image(for weather: Weather) -> UIImage? {
         switch weather {
-        case .sunny:        UIImage(resource: .sunny)
-        case .cloudy:       UIImage(resource: .cloudy)
-        case .rainy:        UIImage(resource: .rainy)
-        case .unknown:      nil
+        case .sunny:
+            UIImage(resource: .sunny)
+        case .cloudy:
+            UIImage(resource: .cloudy)
+        case .rainy:
+            UIImage(resource: .rainy)
+        case .unknown:
+            nil
         }
     }
 }
