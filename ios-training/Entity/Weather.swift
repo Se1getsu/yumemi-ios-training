@@ -13,6 +13,4 @@ enum Weather: String {
     case cloudy
     /// 雨
     case rainy
-    /// 未定義の天気
-    case unknown
 }

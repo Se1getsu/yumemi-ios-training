@@ -9,7 +9,7 @@ import UIKit.UIImage
 
 /// 天気の画像を取得するリポジトリ
 struct WeatherImageRepository {
-    func image(for weather: Weather) -> UIImage? {
+    func image(for weather: Weather) -> UIImage {
         switch weather {
         case .sunny:
             UIImage(resource: .sunny)
@@ -17,8 +17,6 @@ struct WeatherImageRepository {
             UIImage(resource: .cloudy)
         case .rainy:
             UIImage(resource: .rainy)
-        case .unknown:
-            nil
         }
     }
 }

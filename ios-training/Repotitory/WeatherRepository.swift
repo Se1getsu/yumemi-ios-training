@@ -10,8 +10,10 @@ import YumemiWeather
 
 /// YumemiWeather から天気を取得するリポジトリ
 struct WeatherRepository {
-    func fetch() -> Weather {
+    /// 天気を取得する
+    /// - returns: 天気。`Weather`で未定義のものを取得した場合は`nil`を返す
+    func fetch() -> Weather? {
         let weatherString = YumemiWeather.fetchWeatherCondition()
-        return .init(rawValue: weatherString) ?? .unknown
+        return .init(rawValue: weatherString)
     }
 }

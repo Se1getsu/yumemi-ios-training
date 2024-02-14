@@ -44,7 +44,7 @@ class WeatherViewController: UIViewController {
 private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
-        let weather = weatherRepository.fetch()
+        guard let weather = weatherRepository.fetch() else { return }
         myView.weatherImageView.image = weatherImageRepository.image(for: weather)
         myView.weatherImageView.tintColor = imageTint(for: weather)
     }
@@ -58,8 +58,6 @@ private extension WeatherViewController {
             UIColor.systemGray
         case .rainy:
             UIColor.tintColor
-        case .unknown:
-            nil
         }
     }
 }
