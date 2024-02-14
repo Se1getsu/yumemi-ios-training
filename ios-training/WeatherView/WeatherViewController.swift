@@ -9,7 +9,6 @@ import UIKit
 
 /// 天気を表示する画面
 class WeatherViewController: UIViewController {
-    
     // MARK: Dependency
     
     private let myView = WeatherView()
@@ -31,17 +30,19 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = myView
-        myView.reloadButton.addTarget(self, action: #selector(didTapReloadButton), for: .touchUpInside)
+        myView.eventHandler = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadWeather()
     }
-    
-    // MARK: Internal
-    
-    @objc func didTapReloadButton() {
+}
+
+// MARK: WeatherViewEventHandler
+
+extension WeatherViewController: WeatherViewEventHandler {
+    func didTapReloadButton() {
         loadWeather()
     }
 }
@@ -61,7 +62,7 @@ private extension WeatherViewController {
         }
     }
     
-    /// `weatherImageView.tintColor` に指定するための色を返す。
+    /// `weatherImageView.tintColor` に指定するための色を返す
     func imageTint(for weather: Weather) -> UIColor? {
         switch weather {
         case .sunny:

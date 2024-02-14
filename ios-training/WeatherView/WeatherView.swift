@@ -8,6 +8,9 @@
 import UIKit
 
 final class WeatherView: UIView {
+    // MARK: Properties
+    
+    weak var eventHandler: WeatherViewEventHandler?
     
     // MARK: Properties - UI
     
@@ -71,6 +74,7 @@ final class WeatherView: UIView {
         backgroundColor = .systemBackground
         addSubviewUIs()
         setUpLayout()
+        registerEvent()
     }
     
     required init?(coder: NSCoder) {
@@ -145,5 +149,14 @@ private extension WeatherView {
             reloadButton.topAnchor.constraint(equalTo: highTemperatureLabel.bottomAnchor, constant: 80),
             reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
         ])
+    }
+    
+    /// 画面のイベント処理を登録する
+    func registerEvent() {
+        reloadButton.addTarget(self, action: #selector(didTapReloadButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapReloadButton() {
+        eventHandler?.didTapReloadButton()
     }
 }
