@@ -28,9 +28,12 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = myView
-        loadWeather()
-        
         myView.reloadButton.addTarget(self, action: #selector(didTapReloadButton), for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadWeather()
     }
     
     @objc func didTapReloadButton() {
