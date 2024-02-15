@@ -10,10 +10,22 @@ import YumemiWeather
 
 /// YumemiWeather から天気を取得するリポジトリ
 struct WeatherRepository {
+    // MARK: Errors
+    
+    enum APIError: Error {
+        /// `Weather`に未定義の天気を取得した場合のエラー
+        case undefinedWeather
+    }
+    
+    // MARK: Internal
+    
     /// 天気を取得する
-    /// - returns: 天気。`Weather`で未定義のものを取得した場合は`nil`を返す
-    func fetch() -> Weather? {
-        let weatherString = YumemiWeather.fetchWeatherCondition()
-        return .init(rawValue: weatherString)
+    /// - throws: 取得に失敗した場合は YumemiWeatherError、予期せぬものを取得した場合は WeatherRepository.APIError を返す
+    func fetch(at area: String) throws -> Weather {
+        let weatherString = try YumemiWeather.fetchWeatherCondition(at: area)
+        guard let weather = Weather(rawValue: weatherString) else {
+            throw APIError.undefinedWeather
+        }
+        return weather
     }
 }

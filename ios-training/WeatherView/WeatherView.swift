@@ -31,7 +31,8 @@ final class WeatherView: UIView {
         label.textColor = .label
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.textAlignment = .center
-        label.isHidden = true
+        label.numberOfLines = 2
+        label.text = "Reloadを押して\n天気を読み込む"
         return label
     }()
     
@@ -82,7 +83,7 @@ final class WeatherView: UIView {
     }
 }
 
-// MARK: Private
+// MARK: - Private
 
 private extension WeatherView {
     /// UIをaddSubViewする処理
@@ -159,4 +160,12 @@ private extension WeatherView {
     @objc private func didTapReloadButton() {
         eventHandler?.didTapReloadButton()
     }
+}
+
+// MARK: - Preview
+
+#Preview {
+    let view = WeatherView()
+    view.weatherImageView.backgroundColor = .green.withAlphaComponent(0.2)
+    return PreviewViewController(view: view)
 }

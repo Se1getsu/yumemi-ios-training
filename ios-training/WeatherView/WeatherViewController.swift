@@ -16,13 +16,11 @@ class WeatherViewController: UIViewController {
     // MARK: Dependencies
     
     private let weatherRepository: WeatherRepository
-    private let weatherImageRepository: WeatherImageRepository
     
     // MARK: Lifecycle
     
-    init(weatherRepository: WeatherRepository, weatherImageRepository: WeatherImageRepository) {
+    init(weatherRepository: WeatherRepository) {
         self.weatherRepository = weatherRepository
-        self.weatherImageRepository = weatherImageRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,14 +33,9 @@ class WeatherViewController: UIViewController {
         view = myView
         myView.eventHandler = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadWeather()
-    }
 }
 
-// MARK: WeatherViewEventHandler
+// MARK: - WeatherViewEventHandler
 
 extension WeatherViewController: WeatherViewEventHandler {
     func didTapReloadButton() {
@@ -50,17 +43,28 @@ extension WeatherViewController: WeatherViewEventHandler {
     }
 }
 
-// MARK: Private
+// MARK: - Private
 
 private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
+        myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
-        if let weather = weatherRepository.fetch() {
-            myView.weatherImageView.image = weatherImageRepository.image(for: weather)
+        do {
+            let weather = try weatherRepository.fetch(at: "tokyo")
+            myView.weatherImageView.image = .weatherImage(for: weather)
             myView.weatherImageView.tintColor = imageTint(for: weather)
-        } else {
-            myView.weatherImagePlaceholderLabel.text = "未定義の天気"
+        } catch {
+            let alert = AlertMaker.retryOrCancelAlert(
+                title: "天気の取得に失敗しました",
+                message: "再試行しますか？",
+                didTapRetry: { [unowned self] _ in
+                    self.loadWeather()
+                },
+                didTapCancel: nil
+            )
+            present(alert, animated: true)
+            myView.weatherImagePlaceholderLabel.text = "取得エラー"
             myView.weatherImagePlaceholderLabel.isHidden = false
         }
     }
@@ -78,11 +82,10 @@ private extension WeatherViewController {
     }
 }
 
-// MARK: Preview
+// MARK: - Preview
 
-#Preview("UIKit") {
-    return WeatherViewController(
-        weatherRepository: WeatherRepository(),
-        weatherImageRepository: WeatherImageRepository()
+#Preview {
+    WeatherViewController(
+        weatherRepository: WeatherRepository()
     )
 }
