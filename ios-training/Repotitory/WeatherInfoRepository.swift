@@ -1,5 +1,5 @@
 //
-//  WeatherRepository.swift
+//  WeatherInfoRepository.swift
 //  ios-training
 //
 //  Created by 垣本 桃弥 on 2024/02/13.
@@ -8,8 +8,8 @@
 import Foundation
 import YumemiWeather
 
-/// YumemiWeather から天気を取得するリポジトリ
-struct WeatherRepository {
+/// YumemiWeather から天気に関する情報を取得するリポジトリ
+struct WeatherInfoRepository {
     // MARK: Errors
     
     enum APIError: Error {
@@ -19,7 +19,7 @@ struct WeatherRepository {
     
     // MARK: Internal
     
-    /// 天気を取得する
+    /// 天気に関する情報を取得する
     /// - throws: 取得に失敗した場合は YumemiWeatherError、予期せぬものを取得した場合は WeatherRepository.APIError を返す
     func fetch(at area: String, date: Date) throws -> WeatherInfo {
         let query = WeatherAPIQuery(area: area, date: date)
@@ -33,7 +33,7 @@ struct WeatherRepository {
     }
 }
 
-private extension WeatherRepository {
+private extension WeatherInfoRepository {
     // MARK: Private
     
     private static let dateFormatter: DateFormatter = {
@@ -56,12 +56,12 @@ private extension WeatherRepository {
     }()
     
     func encodeQuery(_ query: WeatherAPIQuery) throws -> String {
-        let queryData = try WeatherRepository.encoder.encode(query)
+        let queryData = try WeatherInfoRepository.encoder.encode(query)
         return String(data: queryData, encoding: .utf8)!
     }
     
     func decodeResponse(_ jsonString: String) throws -> WeatherAPIResponse {
         let data = jsonString.data(using: .utf8)!
-        return try WeatherRepository.decoder.decode(WeatherAPIResponse.self, from: data)
+        return try WeatherInfoRepository.decoder.decode(WeatherAPIResponse.self, from: data)
     }
 }

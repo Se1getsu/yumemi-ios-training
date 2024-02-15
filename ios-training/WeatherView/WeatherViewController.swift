@@ -15,12 +15,12 @@ class WeatherViewController: UIViewController {
     
     // MARK: Dependencies
     
-    private let weatherRepository: WeatherRepository
+    private let weatherInfoRepository: WeatherInfoRepository
     
     // MARK: Lifecycle
     
-    init(weatherRepository: WeatherRepository) {
-        self.weatherRepository = weatherRepository
+    init(weatherInfoRepository: WeatherInfoRepository) {
+        self.weatherInfoRepository = weatherInfoRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,7 +51,7 @@ private extension WeatherViewController {
         myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
-            let weatherInfo = try weatherRepository.fetch(at: "tokyo", date: Date())
+            let weatherInfo = try weatherInfoRepository.fetch(at: "tokyo", date: Date())
             myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
             myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
             myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
@@ -89,8 +89,8 @@ private extension WeatherViewController {
 
 // MARK: - Preview
 
-#Preview {
+#Preview("UIKit") {
     WeatherViewController(
-        weatherRepository: WeatherRepository()
+        weatherInfoRepository: WeatherInfoRepository()
     )
 }
