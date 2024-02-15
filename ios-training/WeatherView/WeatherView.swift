@@ -82,7 +82,7 @@ final class WeatherView: UIView {
     }
 }
 
-// MARK: Private
+// MARK: - Private
 
 private extension WeatherView {
     /// UIをaddSubViewする処理

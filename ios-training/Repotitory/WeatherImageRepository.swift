@@ -9,6 +9,8 @@ import UIKit.UIImage
 
 /// 天気の画像を取得するリポジトリ
 struct WeatherImageRepository {
+    // MARK: Internal
+    
     func image(for weather: Weather) -> UIImage {
         switch weather {
         case .sunny:

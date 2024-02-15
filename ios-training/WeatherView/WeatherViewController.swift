@@ -42,7 +42,7 @@ class WeatherViewController: UIViewController {
     }
 }
 
-// MARK: WeatherViewEventHandler
+// MARK: - WeatherViewEventHandler
 
 extension WeatherViewController: WeatherViewEventHandler {
     func didTapReloadButton() {
@@ -50,7 +50,7 @@ extension WeatherViewController: WeatherViewEventHandler {
     }
 }
 
-// MARK: Private
+// MARK: - Private
 
 private extension WeatherViewController {
     /// 天気を読み込む
@@ -89,7 +89,7 @@ private extension WeatherViewController {
     }
 }
 
-// MARK: Preview
+// MARK: - Preview
 
 #Preview("UIKit") {
     return WeatherViewController(

@@ -9,7 +9,6 @@ import Foundation
 import YumemiWeather
 
 /// YumemiWeather から天気を取得するリポジトリ
-/// - throws: 
 struct WeatherRepository {
     // MARK: Errors
     
