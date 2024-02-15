@@ -91,8 +91,8 @@ private extension WeatherViewController {
 
 // MARK: - Preview
 
-#Preview("UIKit") {
-    return WeatherViewController(
+#Preview {
+    WeatherViewController(
         weatherRepository: WeatherRepository(),
         weatherImageRepository: WeatherImageRepository()
     )

@@ -160,3 +160,13 @@ private extension WeatherView {
         eventHandler?.didTapReloadButton()
     }
 }
+
+// MARK: - Preview
+
+#Preview {
+    let view = WeatherView()
+    view.weatherImageView.backgroundColor = .green.withAlphaComponent(0.2)
+    view.weatherImagePlaceholderLabel.text = "プレースホルダー"
+    view.weatherImagePlaceholderLabel.isHidden = false
+    return PreviewViewController(view: view)
+}
