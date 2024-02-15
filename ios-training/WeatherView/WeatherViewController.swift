@@ -66,7 +66,7 @@ private extension WeatherViewController {
     }
     
     /// `weatherImageView.tintColor` に指定するための色を返す
-    func imageTint(for weather: Weather) -> UIColor? {
+    func imageTint(for weather: Weather) -> UIColor {
         switch weather {
         case .sunny:
             UIColor.systemRed
