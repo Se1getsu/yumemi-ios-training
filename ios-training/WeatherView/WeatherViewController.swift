@@ -65,7 +65,7 @@ private extension WeatherViewController {
             let alert = AlertMaker.retryOrCancelAlert(
                 title: "天気の取得に失敗しました",
                 message: "再試行しますか？",
-                didTapRetry: { _ in
+                didTapRetry: { [unowned self] _ in
                     self.loadWeather()
                 },
                 didTapCancel: nil
