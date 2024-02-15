@@ -15,11 +15,4 @@ struct WeatherInfo {
     let highTemperature: Int
     /// 最低気温
     let minimumTemperature: Int
-    
-    init?(from response: WeatherAPIResponse) {
-        guard let weather = Weather(rawValue: response.weatherCondition) else { return nil }
-        self.weather = weather
-        self.highTemperature = response.maxTemperature
-        self.minimumTemperature = response.minTemperature
-    }
 }
