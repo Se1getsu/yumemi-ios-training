@@ -16,13 +16,11 @@ class WeatherViewController: UIViewController {
     // MARK: Dependencies
     
     private let weatherRepository: WeatherRepository
-    private let weatherImageRepository: WeatherImageRepository
     
     // MARK: Lifecycle
     
-    init(weatherRepository: WeatherRepository, weatherImageRepository: WeatherImageRepository) {
+    init(weatherRepository: WeatherRepository) {
         self.weatherRepository = weatherRepository
-        self.weatherImageRepository = weatherImageRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,7 +52,7 @@ private extension WeatherViewController {
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
             let weather = try weatherRepository.fetch(at: "tokyo")
-            myView.weatherImageView.image = weatherImageRepository.image(for: weather)
+            myView.weatherImageView.image = .weatherImage(for: weather)
             myView.weatherImageView.tintColor = imageTint(for: weather)
         } catch {
             let alert = AlertMaker.retryOrCancelAlert(
@@ -88,7 +86,6 @@ private extension WeatherViewController {
 
 #Preview {
     WeatherViewController(
-        weatherRepository: WeatherRepository(),
-        weatherImageRepository: WeatherImageRepository()
+        weatherRepository: WeatherRepository()
     )
 }

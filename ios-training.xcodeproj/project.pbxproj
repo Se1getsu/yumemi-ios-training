@@ -19,9 +19,9 @@
 		C969708F2B7B284800AC4675 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969708E2B7B284800AC4675 /* WeatherView.swift */; };
 		C96970912B7B348500AC4675 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970902B7B348500AC4675 /* WeatherRepository.swift */; };
 		C96970952B7B353F00AC4675 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970942B7B353F00AC4675 /* Weather.swift */; };
-		C96970992B7B38D500AC4675 /* WeatherImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970982B7B38D500AC4675 /* WeatherImageRepository.swift */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D1AC952B7DF657001987A2 /* PreviewViewController.swift */; };
+		C9D1AC992B7E005E001987A2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D1AC982B7E005E001987A2 /* UIImage.swift */; };
 		C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,9 +58,9 @@
 		C969708E2B7B284800AC4675 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		C96970902B7B348500AC4675 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		C96970942B7B353F00AC4675 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		C96970982B7B38D500AC4675 /* WeatherImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImageRepository.swift; sourceTree = "<group>"; };
 		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 		C9D1AC952B7DF657001987A2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		C9D1AC982B7E005E001987A2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewEventHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +117,7 @@
 				C96970962B7B36D100AC4675 /* Repotitory */,
 				C969709A2B7B3F2700AC4675 /* WeatherView */,
 				C99C9C9A2B7B65690090D5D0 /* Util */,
+				C9D1AC972B7E004C001987A2 /* Extension */,
 				C96970582B7AFDDF00AC4675 /* AppDelegate.swift */,
 				C969705A2B7AFDDF00AC4675 /* SceneDelegate.swift */,
 				C96970612B7AFDE000AC4675 /* Assets.xcassets */,
@@ -147,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				C96970902B7B348500AC4675 /* WeatherRepository.swift */,
-				C96970982B7B38D500AC4675 /* WeatherImageRepository.swift */,
 			);
 			path = Repotitory;
 			sourceTree = "<group>";
@@ -177,6 +177,14 @@
 				C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		C9D1AC972B7E004C001987A2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C9D1AC982B7E005E001987A2 /* UIImage.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,13 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C969705D2B7AFDDF00AC4675 /* WeatherViewController.swift in Sources */,
+				C9D1AC992B7E005E001987A2 /* UIImage.swift in Sources */,
 				C969708F2B7B284800AC4675 /* WeatherView.swift in Sources */,
 				C96970912B7B348500AC4675 /* WeatherRepository.swift in Sources */,
 				C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */,
 				C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */,
 				C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */,
 				C96970592B7AFDDF00AC4675 /* AppDelegate.swift in Sources */,
-				C96970992B7B38D500AC4675 /* WeatherImageRepository.swift in Sources */,
 				C96970952B7B353F00AC4675 /* Weather.swift in Sources */,
 				C969705B2B7AFDDF00AC4675 /* SceneDelegate.swift in Sources */,
 			);

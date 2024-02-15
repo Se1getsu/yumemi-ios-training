@@ -15,8 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = WeatherViewController(
-            weatherRepository: WeatherRepository(),
-            weatherImageRepository: WeatherImageRepository()
+            weatherRepository: WeatherRepository()
         )
         window?.makeKeyAndVisible()
     }
