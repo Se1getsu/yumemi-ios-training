@@ -31,7 +31,8 @@ final class WeatherView: UIView {
         label.textColor = .label
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.textAlignment = .center
-        label.isHidden = true
+        label.numberOfLines = 2
+        label.text = "Reloadを押して\n天気を読み込む"
         return label
     }()
     
@@ -166,7 +167,5 @@ private extension WeatherView {
 #Preview {
     let view = WeatherView()
     view.weatherImageView.backgroundColor = .green.withAlphaComponent(0.2)
-    view.weatherImagePlaceholderLabel.text = "プレースホルダー"
-    view.weatherImagePlaceholderLabel.isHidden = false
     return PreviewViewController(view: view)
 }

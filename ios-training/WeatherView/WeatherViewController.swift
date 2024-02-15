@@ -35,11 +35,6 @@ class WeatherViewController: UIViewController {
         view = myView
         myView.eventHandler = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadWeather()
-    }
 }
 
 // MARK: - WeatherViewEventHandler
