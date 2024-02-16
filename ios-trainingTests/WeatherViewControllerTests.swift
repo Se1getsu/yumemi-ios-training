@@ -8,11 +8,25 @@
 import XCTest
 @testable import ios_training
 
+// MARK: - Extension
+
+private extension WeatherInfo {
+    static func make(
+        weather: Weather = .cloudy,
+        highTemperature: Int = 20,
+        minimumTemperature: Int = 10
+    ) -> Self {
+        WeatherInfo(weather: weather, highTemperature: highTemperature, minimumTemperature: minimumTemperature)
+    }
+}
+
+// MARK: - WeatherViewControllerTests
+
 final class WeatherViewControllerTests: XCTestCase {
     func test_取得した各天気に対応する画像を表示する() throws {
         let view = SpyWeatherView()
         let weatherInfoRepository = SpyWeatherInfoRepository(
-            willFetch: WeatherInfo(weather: .cloudy, highTemperature: 20, minimumTemperature: 10)
+            willFetch: .make(weather: .cloudy)
         )
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
@@ -24,7 +38,7 @@ final class WeatherViewControllerTests: XCTestCase {
         )
         
         // 更新ボタンを押して天気を読み込む - 雨
-        weatherInfoRepository.willFetch = WeatherInfo(weather: .rainy, highTemperature: 20, minimumTemperature: 10)
+        weatherInfoRepository.willFetch = .make(weather: .rainy)
         vc.didTapReloadButton()
         XCTAssertEqual(
             view.weatherImageView.image,
@@ -32,7 +46,7 @@ final class WeatherViewControllerTests: XCTestCase {
         )
         
         // 更新ボタンを押して天気を読み込む - 晴れ
-        weatherInfoRepository.willFetch = WeatherInfo(weather: .sunny, highTemperature: 20, minimumTemperature: 10)
+        weatherInfoRepository.willFetch = .make(weather: .sunny)
         vc.didTapReloadButton()
         XCTAssertEqual(
             view.weatherImageView.image,
@@ -43,7 +57,7 @@ final class WeatherViewControllerTests: XCTestCase {
     func test_取得した最高気温と最低気温を表示する() throws {
         let view = SpyWeatherView()
         let weatherInfoRepository = SpyWeatherInfoRepository(
-            willFetch: WeatherInfo(weather: .cloudy, highTemperature: 20, minimumTemperature: 10)
+            willFetch: .make(highTemperature: 20, minimumTemperature: 10)
         )
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
