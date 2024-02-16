@@ -89,7 +89,7 @@ private extension WeatherViewController {
 
 // MARK: - Preview
 
-#Preview("UIKit") {
+#Preview {
     WeatherViewController(
         weatherInfoRepository: WeatherInfoRepository()
     )
