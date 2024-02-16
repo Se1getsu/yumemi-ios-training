@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */; };
+		C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */; };
 		C96970592B7AFDDF00AC4675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970582B7AFDDF00AC4675 /* AppDelegate.swift */; };
 		C969705B2B7AFDDF00AC4675 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969705A2B7AFDDF00AC4675 /* SceneDelegate.swift */; };
 		C969705D2B7AFDDF00AC4675 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969705C2B7AFDDF00AC4675 /* WeatherViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherInfoRepository.swift; sourceTree = "<group>"; };
+		C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherView.swift; sourceTree = "<group>"; };
 		C96970552B7AFDDF00AC4675 /* ios-training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96970582B7AFDDF00AC4675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C969705A2B7AFDDF00AC4675 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90194852B7F28D2003F9F0F /* TestDouble */ = {
+			isa = PBXGroup;
+			children = (
+				C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */,
+				C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */,
+			);
+			path = TestDouble;
+			sourceTree = "<group>";
+		};
 		C969704C2B7AFDDF00AC4675 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +149,7 @@
 		C969706E2B7AFDE000AC4675 /* ios-trainingTests */ = {
 			isa = PBXGroup;
 			children = (
+				C90194852B7F28D2003F9F0F /* TestDouble */,
 				C969706F2B7AFDE000AC4675 /* ios_trainingTests.swift */,
 			);
 			path = "ios-trainingTests";
@@ -355,6 +369,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96970702B7AFDE000AC4675 /* ios_trainingTests.swift in Sources */,
+				C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */,
+				C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
