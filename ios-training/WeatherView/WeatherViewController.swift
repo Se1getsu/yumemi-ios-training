@@ -32,6 +32,14 @@ final class WeatherViewController: UIViewController {
         super.viewDidLoad()
         view = myView
         myView.eventHandler = self
+        
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: nil
+        ) { [weak self] _ in
+            self?.loadWeather()
+        }
     }
 }
 
