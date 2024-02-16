@@ -8,7 +8,7 @@
 import UIKit
 
 /// 天気を表示する画面
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     // MARK: Properties
     
     private let myView = WeatherView()

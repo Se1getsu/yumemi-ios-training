@@ -8,7 +8,7 @@
 import UIKit
 
 /// 起動時に表示されるホーム画面
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     // MARK: Lifecycle
     
     override func viewDidLoad() {
