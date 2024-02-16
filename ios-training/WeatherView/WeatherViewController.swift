@@ -91,6 +91,6 @@ private extension WeatherViewController {
 
 #Preview {
     WeatherViewController(
-        weatherInfoRepository: WeatherInfoRepository()
+        weatherInfoRepository: WeatherInfoRepositoryImpl()
     )
 }
