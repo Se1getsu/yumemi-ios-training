@@ -60,22 +60,16 @@ private extension WeatherInfoRepository {
         }
     }
     
-    private static let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        return dateFormatter
-    }()
-    
     private static let encoder: JSONEncoder = {
         let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        encoder.dateEncodingStrategy = .iso8601
         return encoder
     }()
     
     private static let decoder: JSONDecoder = {
         let decorder = JSONDecoder()
         decorder.keyDecodingStrategy = .convertFromSnakeCase
-        decorder.dateDecodingStrategy = .formatted(dateFormatter)
+        decorder.dateDecodingStrategy = .iso8601
         return decorder
     }()
     
