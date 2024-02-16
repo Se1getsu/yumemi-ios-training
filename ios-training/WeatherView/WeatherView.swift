@@ -154,7 +154,12 @@ private extension WeatherView {
     
     /// 画面のイベント処理を登録する
     func registerEvent() {
+        closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         reloadButton.addTarget(self, action: #selector(didTapReloadButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapCloseButton() {
+        eventHandler?.didTapCloseButton()
     }
     
     @objc private func didTapReloadButton() {

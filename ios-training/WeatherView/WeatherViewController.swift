@@ -38,6 +38,10 @@ class WeatherViewController: UIViewController {
 // MARK: - WeatherViewEventHandler
 
 extension WeatherViewController: WeatherViewEventHandler {
+    func didTapCloseButton() {
+        dismiss(animated: true)
+    }
+    
     func didTapReloadButton() {
         loadWeather()
     }
