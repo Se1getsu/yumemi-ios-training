@@ -8,7 +8,7 @@
 import UIKit
 
 /// 天気を表示する画面
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     // MARK: Properties
     
     private let myView: WeatherViewProtocol
@@ -33,12 +33,24 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         view = myView
         myView.eventHandler = self
+        
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: nil
+        ) { [weak self] _ in
+            self?.loadWeather()
+        }
     }
 }
 
 // MARK: - WeatherViewEventHandler
 
 extension WeatherViewController: WeatherViewEventHandler {
+    func didTapCloseButton() {
+        dismiss(animated: true)
+    }
+    
     func didTapReloadButton() {
         loadWeather()
     }
