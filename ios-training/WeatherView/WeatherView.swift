@@ -7,14 +7,14 @@
 
 import UIKit
 
-final class WeatherView: UIView {
+final class WeatherView: UIView, WeatherViewProtocol {
     // MARK: Properties
     
     weak var eventHandler: WeatherViewEventHandler?
     
     // MARK: Properties - UI
     
-    let weatherFrame: UIView = {
+    private let weatherFrame: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view

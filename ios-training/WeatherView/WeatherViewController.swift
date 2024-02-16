@@ -11,7 +11,7 @@ import UIKit
 class WeatherViewController: UIViewController {
     // MARK: Properties
     
-    private let myView = WeatherView()
+    private let myView: WeatherViewProtocol
     
     // MARK: Dependencies
     
@@ -19,7 +19,8 @@ class WeatherViewController: UIViewController {
     
     // MARK: Lifecycle
     
-    init(weatherInfoRepository: WeatherInfoRepository) {
+    init(view: WeatherViewProtocol = WeatherView(), weatherInfoRepository: WeatherInfoRepository) {
+        self.myView = view
         self.weatherInfoRepository = weatherInfoRepository
         super.init(nibName: nil, bundle: nil)
     }
