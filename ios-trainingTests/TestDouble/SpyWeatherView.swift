@@ -13,7 +13,7 @@ class SpyWeatherView: UIView, WeatherViewProtocol {
     
     weak var eventHandler: WeatherViewEventHandler?
     
-    // MARK: UI
+    // MARK: Properties - UI
     
     let weatherImageView = UIImageView()
     let weatherImagePlaceholderLabel = UILabel()
