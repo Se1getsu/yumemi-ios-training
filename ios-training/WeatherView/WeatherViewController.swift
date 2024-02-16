@@ -15,12 +15,12 @@ class WeatherViewController: UIViewController {
     
     // MARK: Dependencies
     
-    private let weatherRepository: WeatherRepository
+    private let weatherInfoRepository: WeatherInfoRepository
     
     // MARK: Lifecycle
     
-    init(weatherRepository: WeatherRepository) {
-        self.weatherRepository = weatherRepository
+    init(weatherInfoRepository: WeatherInfoRepository) {
+        self.weatherInfoRepository = weatherInfoRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,9 +51,11 @@ private extension WeatherViewController {
         myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
         do {
-            let weather = try weatherRepository.fetch(at: "tokyo")
-            myView.weatherImageView.image = .weatherImage(for: weather)
-            myView.weatherImageView.tintColor = imageTint(for: weather)
+            let weatherInfo = try weatherInfoRepository.fetch(at: "tokyo", date: Date())
+            myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+            myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
+            myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+            myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
         } catch {
             let alert = AlertMaker.retryOrCancelAlert(
                 title: "天気の取得に失敗しました",
@@ -64,8 +66,11 @@ private extension WeatherViewController {
                 didTapCancel: nil
             )
             present(alert, animated: true)
+            myView.weatherImageView.image = nil
             myView.weatherImagePlaceholderLabel.text = "取得エラー"
             myView.weatherImagePlaceholderLabel.isHidden = false
+            myView.minimumTemperatureLabel.text = "--"
+            myView.highTemperatureLabel.text = "--"
         }
     }
     
@@ -86,6 +91,6 @@ private extension WeatherViewController {
 
 #Preview {
     WeatherViewController(
-        weatherRepository: WeatherRepository()
+        weatherInfoRepository: WeatherInfoRepository()
     )
 }
