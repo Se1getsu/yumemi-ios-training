@@ -16,13 +16,7 @@ final class SpyWeatherInfoRepository {
     
     // MARK: Output
     
-    var willFetch: WeatherInfo
-    
-    // MARK: Lifecycle
-    
-    init(willFetch: WeatherInfo) {
-        self.willFetch = willFetch
-    }
+    var willFetch: WeatherInfo!
 }
 
 // MARK: - WeatherInfoRepository

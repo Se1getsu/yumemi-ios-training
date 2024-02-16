@@ -25,12 +25,11 @@ private extension WeatherInfo {
 final class WeatherViewControllerTests: XCTestCase {
     func test_取得した各天気に対応する画像を表示する() throws {
         let view = SpyWeatherView()
-        let weatherInfoRepository = SpyWeatherInfoRepository(
-            willFetch: .make(weather: .cloudy)
-        )
+        let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
         // 更新ボタンを押して天気を読み込む - 曇り
+        weatherInfoRepository.willFetch = .make(weather: .cloudy)
         vc.didTapReloadButton()
         XCTAssertEqual(
             view.weatherImageView.image,
@@ -56,12 +55,11 @@ final class WeatherViewControllerTests: XCTestCase {
     
     func test_取得した最高気温と最低気温を表示する() throws {
         let view = SpyWeatherView()
-        let weatherInfoRepository = SpyWeatherInfoRepository(
-            willFetch: .make(highTemperature: 20, minimumTemperature: 10)
-        )
+        let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
-        // 更新ボタンを押して天気を読み込む
+        // 更新ボタンを押して気温を読み込む
+        weatherInfoRepository.willFetch = .make(highTemperature: 20, minimumTemperature: 10)
         vc.didTapReloadButton()
         XCTAssertEqual(view.highTemperatureLabel.text, "20")
         XCTAssertEqual(view.minimumTemperatureLabel.text, "10")
