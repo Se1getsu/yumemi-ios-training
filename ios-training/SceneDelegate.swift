@@ -15,7 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = WeatherViewController(
-            weatherInfoRepository: WeatherInfoRepositoryImpl()
+            weatherInfoRepository: WeatherInfoRepositoryImpl(
+                apiEncoder: YumemiWeatherAPIEncoder(),
+                apiDecoder: YumemiWeatherAPIDecoder()
+            )
         )
         window?.makeKeyAndVisible()
     }

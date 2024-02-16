@@ -92,6 +92,9 @@ private extension WeatherViewController {
 
 #Preview {
     WeatherViewController(
-        weatherInfoRepository: WeatherInfoRepositoryImpl()
+        weatherInfoRepository: WeatherInfoRepositoryImpl(
+            apiEncoder: YumemiWeatherAPIEncoder(),
+            apiDecoder: YumemiWeatherAPIDecoder()
+        )
     )
 }
