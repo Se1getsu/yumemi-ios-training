@@ -55,16 +55,14 @@ final class WeatherView: UIView, WeatherViewProtocol {
     }()
     
     let closeButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Close", for: .normal)
-        button.setTitleColor(.tintColor, for: .normal)
         return button
     }()
     
     let reloadButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Reload", for: .normal)
-        button.setTitleColor(.tintColor, for: .normal)
         return button
     }()
     
