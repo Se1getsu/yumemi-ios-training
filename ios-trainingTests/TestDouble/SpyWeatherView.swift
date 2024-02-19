@@ -15,6 +15,7 @@ class SpyWeatherView: UIView, WeatherViewProtocol {
     
     // MARK: Properties - UI
     
+    let activityIndicator = UIActivityIndicatorView()
     let weatherImageView = UIImageView()
     let weatherImagePlaceholderLabel = UILabel()
     let minimumTemperatureLabel = UILabel()
