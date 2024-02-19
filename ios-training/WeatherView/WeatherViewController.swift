@@ -61,11 +61,21 @@ extension WeatherViewController: WeatherViewEventHandler {
 private extension WeatherViewController {
     /// 天気を読み込む
     func loadWeather() {
-        myView.weatherImageView.image = nil
+        // 読み込み前
         myView.weatherImagePlaceholderLabel.isHidden = true
+        myView.closeButton.isEnabled = false
+        myView.reloadButton.isEnabled = false
         DispatchQueue.global().async {
+            defer {
+                // 読み込み完了
+                DispatchQueue.main.async {
+                    self.myView.closeButton.isEnabled = true
+                    self.myView.reloadButton.isEnabled = true
+                }
+            }
             do {
                 let weatherInfo = try self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
+                // 読み込み成功
                 DispatchQueue.main.async {
                     self.myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
                     self.myView.weatherImageView.tintColor = self.imageTint(for: weatherInfo.weather)
@@ -73,6 +83,7 @@ private extension WeatherViewController {
                     self.myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
                 }
             } catch {
+                // 読み込み失敗
                 DispatchQueue.main.async {
                     let alert = AlertMaker.retryOrCancelAlert(
                         title: "天気の取得に失敗しました",
