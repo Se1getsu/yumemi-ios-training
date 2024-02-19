@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController {
 private extension HomeViewController {
     func transitToWeatherView() {
         let vc = WeatherViewController(
-            weatherInfoRepository: WeatherInfoRepositoryImpl(
+            weatherInfoRepository: WeatherInfoRepository(
                 apiEncoder: YumemiWeatherAPIEncoder(),
                 apiDecoder: YumemiWeatherAPIDecoder()
             )

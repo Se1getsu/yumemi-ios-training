@@ -15,11 +15,11 @@ final class WeatherViewController: UIViewController {
     
     // MARK: Dependencies
     
-    private let weatherInfoRepository: WeatherInfoRepository
+    private let weatherInfoRepository: WeatherInfoRepositoryProtocol
     
     // MARK: Lifecycle
     
-    init(view: WeatherViewProtocol = WeatherView(), weatherInfoRepository: WeatherInfoRepository) {
+    init(view: WeatherViewProtocol = WeatherView(), weatherInfoRepository: WeatherInfoRepositoryProtocol) {
         self.myView = view
         self.weatherInfoRepository = weatherInfoRepository
         super.init(nibName: nil, bundle: nil)
@@ -104,7 +104,7 @@ private extension WeatherViewController {
 
 #Preview {
     WeatherViewController(
-        weatherInfoRepository: WeatherInfoRepositoryImpl(
+        weatherInfoRepository: WeatherInfoRepository(
             apiEncoder: YumemiWeatherAPIEncoder(),
             apiDecoder: YumemiWeatherAPIDecoder()
         )

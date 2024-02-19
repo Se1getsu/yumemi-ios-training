@@ -21,7 +21,7 @@ final class SpyWeatherInfoRepository {
 
 // MARK: - WeatherInfoRepository
 
-extension SpyWeatherInfoRepository: WeatherInfoRepository {
+extension SpyWeatherInfoRepository: WeatherInfoRepositoryProtocol {
     func fetch(at area: String, date: Date) throws -> WeatherInfo {
         areaInput = area
         dateInput = date
