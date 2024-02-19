@@ -63,27 +63,33 @@ private extension WeatherViewController {
     func loadWeather() {
         myView.weatherImageView.image = nil
         myView.weatherImagePlaceholderLabel.isHidden = true
-        do {
-            let weatherInfo = try weatherInfoRepository.fetch(at: "tokyo", date: Date())
-            myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
-            myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
-            myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
-            myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
-        } catch {
-            let alert = AlertMaker.retryOrCancelAlert(
-                title: "天気の取得に失敗しました",
-                message: "再試行しますか？",
-                didTapRetry: { [unowned self] _ in
-                    self.loadWeather()
-                },
-                didTapCancel: nil
-            )
-            present(alert, animated: true)
-            myView.weatherImageView.image = nil
-            myView.weatherImagePlaceholderLabel.text = "取得エラー"
-            myView.weatherImagePlaceholderLabel.isHidden = false
-            myView.minimumTemperatureLabel.text = "--"
-            myView.highTemperatureLabel.text = "--"
+        DispatchQueue.global().async {
+            do {
+                let weatherInfo = try self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
+                DispatchQueue.main.async {
+                    self.myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+                    self.myView.weatherImageView.tintColor = self.imageTint(for: weatherInfo.weather)
+                    self.myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+                    self.myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    let alert = AlertMaker.retryOrCancelAlert(
+                        title: "天気の取得に失敗しました",
+                        message: "再試行しますか？",
+                        didTapRetry: { [unowned self] _ in
+                            self.loadWeather()
+                        },
+                        didTapCancel: nil
+                    )
+                    self.present(alert, animated: true)
+                    self.myView.weatherImageView.image = nil
+                    self.myView.weatherImagePlaceholderLabel.text = "取得エラー"
+                    self.myView.weatherImagePlaceholderLabel.isHidden = false
+                    self.myView.minimumTemperatureLabel.text = "--"
+                    self.myView.highTemperatureLabel.text = "--"
+                }
+            }
         }
     }
     
