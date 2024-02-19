@@ -63,12 +63,14 @@ private extension WeatherViewController {
     func loadWeather() {
         // 読み込み前
         myView.weatherImagePlaceholderLabel.isHidden = true
+        myView.activityIndicator.startAnimating()
         myView.closeButton.isEnabled = false
         myView.reloadButton.isEnabled = false
         DispatchQueue.global().async {
             defer {
                 // 読み込み完了
                 DispatchQueue.main.async {
+                    self.myView.activityIndicator.stopAnimating()
                     self.myView.closeButton.isEnabled = true
                     self.myView.reloadButton.isEnabled = true
                 }

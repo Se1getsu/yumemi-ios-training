@@ -20,4 +20,5 @@ protocol WeatherViewProtocol: UIView {
     var highTemperatureLabel: UILabel { get }
     var closeButton: UIButton { get }
     var reloadButton: UIButton { get }
+    var activityIndicator: UIActivityIndicatorView { get }
 }

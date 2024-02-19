@@ -68,6 +68,12 @@ final class WeatherView: UIView, WeatherViewProtocol {
         return button
     }()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        return activityIndicator
+    }()
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
@@ -95,10 +101,11 @@ private extension WeatherView {
         addSubview(highTemperatureLabel)
         addSubview(closeButton)
         addSubview(reloadButton)
+        addSubview(activityIndicator)
     }
     
     /// オートレイアウトの設定処理
-    func setUpLayout() {
+    func setUpLayout() { // swiftlint:disable:this function_body_length
         let safeArea = safeAreaLayoutGuide
         
         weatherFrame.translatesAutoresizingMaskIntoConstraints = false
@@ -149,6 +156,14 @@ private extension WeatherView {
         NSLayoutConstraint.activate([
             reloadButton.topAnchor.constraint(equalTo: highTemperatureLabel.bottomAnchor, constant: 80),
             reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
+        ])
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
     
