@@ -8,6 +8,9 @@
 import Foundation
 
 protocol WeatherPresenterInput {
+    /// 画面がフォアグラウンドになる時の処理
+    func willEnterForeground()
+    
     /// Close ボタンが押された時の処理
     func didTapCloseButton()
     

@@ -5,7 +5,7 @@
 //  Created by 垣本 桃弥 on 2024/02/13.
 //
 
-import UIKit
+import Foundation
 
 final class WeatherPresenter: WeatherPresenterInput {
     // MARK: Properties - Dependencies
@@ -18,14 +18,10 @@ final class WeatherPresenter: WeatherPresenterInput {
     init(view: WeatherPresenterOutput, weatherInfoRepository: WeatherInfoRepositoryProtocol) {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
-        
-        NotificationCenter.default.addObserver(
-            forName: UIApplication.willEnterForegroundNotification,
-            object: nil,
-            queue: nil
-        ) { [weak self] _ in
-            self?.loadWeather()
-        }
+    }
+    
+    func willEnterForeground() {
+        loadWeather()
     }
     
     func didTapCloseButton() {
@@ -68,11 +64,3 @@ private extension WeatherPresenter {
         }
     }
 }
-
-// MARK: - Preview
-
-//#Preview {
-//    let view = WeatherView()
-//    view.weatherImageView.backgroundColor = .green.withAlphaComponent(0.2)
-//    return PreviewViewController(view: view)
-//}
