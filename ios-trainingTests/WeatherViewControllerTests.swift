@@ -26,6 +26,9 @@ final class WeatherViewControllerTests: XCTestCase {
     // MARK: - Properties
     
     /// API通信の待機時間
+    let apiTimeout: Double = 0.1
+    
+    /// API通信完了の確認の間隔
     let apiInterval: Double = 0.01
     
     // MARK: - Tests
@@ -35,14 +38,17 @@ final class WeatherViewControllerTests: XCTestCase {
         let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
+        let expectation = expectation(description: "読み込みが終わるまで待機")
+        Timer.scheduledTimer(withTimeInterval: apiInterval, repeats: true) { timer in
+            guard view.weatherImageView.image == UIImage(resource: .cloudy) else { return }
+            expectation.fulfill()
+            timer.invalidate()
+        }
+        
         // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .cloudy)
         vc.didTapReloadButton()
-        _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
-        XCTAssertEqual(
-            view.weatherImageView.image,
-            UIImage(resource: .cloudy)
-        )
+        wait(for: [expectation], timeout: apiTimeout)
     }
     
     func test_雨の画像を表示する() throws {
@@ -50,14 +56,17 @@ final class WeatherViewControllerTests: XCTestCase {
         let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
+        let expectation = expectation(description: "読み込みが終わるまで待機")
+        Timer.scheduledTimer(withTimeInterval: apiInterval, repeats: true) { timer in
+            guard view.weatherImageView.image == UIImage(resource: .rainy) else { return }
+            expectation.fulfill()
+            timer.invalidate()
+        }
+        
         // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .rainy)
         vc.didTapReloadButton()
-        _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
-        XCTAssertEqual(
-            view.weatherImageView.image,
-            UIImage(resource: .rainy)
-        )
+        wait(for: [expectation], timeout: apiTimeout)
     }
     
     func test_晴れの画像を表示する() throws {
@@ -65,14 +74,17 @@ final class WeatherViewControllerTests: XCTestCase {
         let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
+        let expectation = expectation(description: "読み込みが終わるまで待機")
+        Timer.scheduledTimer(withTimeInterval: apiInterval, repeats: true) { timer in
+            guard view.weatherImageView.image == UIImage(resource: .sunny) else { return }
+            expectation.fulfill()
+            timer.invalidate()
+        }
+        
         // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .sunny)
         vc.didTapReloadButton()
-        _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
-        XCTAssertEqual(
-            view.weatherImageView.image,
-            UIImage(resource: .sunny)
-        )
+        wait(for: [expectation], timeout: apiTimeout)
     }
     
     func test_取得した最高気温と最低気温を表示する() throws {
@@ -80,11 +92,17 @@ final class WeatherViewControllerTests: XCTestCase {
         let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
+        let expectation = expectation(description: "読み込みが終わるまで待機")
+        Timer.scheduledTimer(withTimeInterval: apiInterval, repeats: true) { timer in
+            guard view.highTemperatureLabel.text == "20" else { return }
+            guard view.minimumTemperatureLabel.text == "10" else { return }
+            expectation.fulfill()
+            timer.invalidate()
+        }
+        
         // 更新ボタンを押して気温を読み込む
         weatherInfoRepository.willFetch = .make(highTemperature: 20, minimumTemperature: 10)
         vc.didTapReloadButton()
-        _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
-        XCTAssertEqual(view.highTemperatureLabel.text, "20")
-        XCTAssertEqual(view.minimumTemperatureLabel.text, "10")
+        wait(for: [expectation], timeout: apiTimeout)
     }
 }
