@@ -26,12 +26,21 @@ final class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func transitToWeatherView() {
-        let vc = WeatherViewController(
+//        let vc = WeatherViewController(
+//            weatherInfoRepository: WeatherInfoRepository(
+//                apiEncoder: YumemiWeatherAPIEncoder(),
+//                apiDecoder: YumemiWeatherAPIDecoder()
+//            )
+//        )
+        let vc = WeatherViewController()
+        let presenter = WeatherPresenter(
+            view: vc,
             weatherInfoRepository: WeatherInfoRepository(
                 apiEncoder: YumemiWeatherAPIEncoder(),
                 apiDecoder: YumemiWeatherAPIDecoder()
             )
         )
+        vc.inject(presenter: presenter)
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

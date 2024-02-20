@@ -8,10 +8,10 @@
 import UIKit
 @testable import ios_training
 
-class SpyWeatherView: UIView, WeatherViewProtocol {
+class SpyWeatherView: UIView, WeatherPresenterOutput {
     // MARK: Properties
     
-    weak var eventHandler: WeatherViewEventHandler?
+    weak var eventHandler: WeatherPresenterInput?
     
     // MARK: Properties - UI
     
