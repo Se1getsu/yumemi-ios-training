@@ -10,8 +10,10 @@ import Foundation
 protocol WeatherPresenterInput {
     /// Close ボタンが押された時の処理
     func didTapCloseButton()
+    
     /// Reload ボタンが押された時の処理
     func didTapReloadButton()
+    
     /// アラートのRetryボタンが押された時の処理
     func didTapRetry()
 }

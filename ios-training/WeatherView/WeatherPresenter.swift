@@ -46,28 +46,27 @@ final class WeatherPresenter: WeatherPresenterInput {
 private extension WeatherPresenter {
     /// 天気を読み込む
     func loadWeather() {
-        view.読み込み前()
+        view.startLoading()
         DispatchQueue.global().async {
             defer {
                 DispatchQueue.main.async {
-                    self.view.読み込み完了()
+                    self.view.finishLoading()
                 }
             }
             do {
                 let weatherInfo = try self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
                 // 読み込み成功
                 DispatchQueue.main.async {
-                    self.view.読み込み成功(weatherInfo: weatherInfo)
+                    self.view.showWeatherInfo(weatherInfo: weatherInfo)
                 }
             } catch {
                 // 読み込み失敗
                 DispatchQueue.main.async {
-                    self.view.読み込み失敗()
+                    self.view.showFetchErrorAlert()
                 }
             }
         }
     }
-    
 }
 
 // MARK: - Preview

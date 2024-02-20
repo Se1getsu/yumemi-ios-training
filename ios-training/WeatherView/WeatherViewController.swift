@@ -91,26 +91,27 @@ extension WeatherViewController: WeatherPresenterOutput {
         dismiss(animated: true)
     }
     
-    func 読み込み前() {
-        weatherImagePlaceholderLabel.isHidden = true
+    func startLoading() {
         activityIndicator.startAnimating()
+        weatherImagePlaceholderLabel.isHidden = true
         closeButton.isEnabled = false
         reloadButton.isEnabled = false
     }
     
-    func 読み込み完了() {
+    func finishLoading() {
         activityIndicator.stopAnimating()
         closeButton.isEnabled = true
         reloadButton.isEnabled = true
     }
     
-    func 読み込み成功(weatherInfo: WeatherInfo) {
+    func showWeatherInfo(weatherInfo: WeatherInfo) {
         weatherImageView.image = .weatherImage(for: weatherInfo.weather)
         weatherImageView.tintColor = self.imageTint(for: weatherInfo.weather)
         minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
         highTemperatureLabel.text = weatherInfo.highTemperature.description
     }
-    func 読み込み失敗() {
+    
+    func showFetchErrorAlert() {
         let alert = AlertMaker.retryOrCancelAlert(
             title: "天気の取得に失敗しました",
             message: "再試行しますか？",
