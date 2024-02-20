@@ -66,11 +66,7 @@ final class WeatherView: UIView, WeatherViewProtocol {
         return button
     }()
     
-    let activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.style = .large
-        return activityIndicator
-    }()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: Lifecycle
     
