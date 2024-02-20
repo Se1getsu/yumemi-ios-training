@@ -29,7 +29,7 @@ struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
     /// - throws: エンコードやデコードに失敗した場合はそれに対応するエラーを投げる
     func fetch(at area: String, date: Date) async throws -> WeatherInfo {
         let query = try apiEncoder.encodeQuery(at: area, date: date)
-        let response = try YumemiWeather.syncFetchWeather(query)
+        let response = try await YumemiWeather.asyncFetchWeather(query)
         return try apiDecoder.decodeResponse(response)
     }
 }
