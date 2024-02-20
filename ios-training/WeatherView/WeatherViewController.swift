@@ -72,7 +72,7 @@ extension WeatherViewController: WeatherPresenterOutput {
     
     func showWeatherInfo(weatherInfo: WeatherInfo) {
         myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
-        myView.weatherImageView.tintColor = self.imageTint(for: weatherInfo.weather)
+        myView.weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
         myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
         myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
     }
@@ -92,22 +92,6 @@ extension WeatherViewController: WeatherPresenterOutput {
         myView.weatherImagePlaceholderLabel.isHidden = false
         myView.minimumTemperatureLabel.text = "--"
         myView.highTemperatureLabel.text = "--"
-    }
-}
-
-// MARK: - Private
-
-private extension WeatherViewController {
-    /// `weatherImageView.tintColor` に指定するための色を返す
-    func imageTint(for weather: Weather) -> UIColor {
-        switch weather {
-        case .sunny:
-            UIColor.systemRed
-        case .cloudy:
-            UIColor.systemGray
-        case .rainy:
-            UIColor.tintColor
-        }
     }
 }
 
