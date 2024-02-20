@@ -26,16 +26,16 @@ final class WeatherViewControllerTests: XCTestCase {
     // MARK: - Properties
     
     /// API通信の待機時間
-    let apiInterval: Double = 3.0
+    let apiInterval: Double = 0.1
     
     // MARK: - Tests
     
-    func test_取得した各天気に対応する画像を表示する() throws {
+    func test_曇りの画像を表示する() throws {
         let view = SpyWeatherView()
         let weatherInfoRepository = SpyWeatherInfoRepository()
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
-        // 更新ボタンを押して天気を読み込む - 曇り
+        // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .cloudy)
         vc.didTapReloadButton()
         _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
@@ -43,8 +43,14 @@ final class WeatherViewControllerTests: XCTestCase {
             view.weatherImageView.image,
             UIImage(resource: .cloudy)
         )
+    }
+    
+    func test_雨の画像を表示する() throws {
+        let view = SpyWeatherView()
+        let weatherInfoRepository = SpyWeatherInfoRepository()
+        let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
-        // 更新ボタンを押して天気を読み込む - 雨
+        // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .rainy)
         vc.didTapReloadButton()
         _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
@@ -52,8 +58,14 @@ final class WeatherViewControllerTests: XCTestCase {
             view.weatherImageView.image,
             UIImage(resource: .rainy)
         )
+    }
+    
+    func test_晴れの画像を表示する() throws {
+        let view = SpyWeatherView()
+        let weatherInfoRepository = SpyWeatherInfoRepository()
+        let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
-        // 更新ボタンを押して天気を読み込む - 晴れ
+        // 更新ボタンを押して天気を読み込む
         weatherInfoRepository.willFetch = .make(weather: .sunny)
         vc.didTapReloadButton()
         _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
