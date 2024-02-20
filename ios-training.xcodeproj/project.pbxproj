@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */; };
-		C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */; };
-		C901948B2B7F3139003F9F0F /* WeatherViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */; };
+		C90194892B7F2E7B003F9F0F /* SpyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */; };
+		C901948B2B7F3139003F9F0F /* WeatherPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */; };
 		C90194902B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948F2B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift */; };
 		C90194922B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194912B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift */; };
 		C90194942B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */; };
@@ -57,8 +57,8 @@
 
 /* Begin PBXFileReference section */
 		C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherInfoRepository.swift; sourceTree = "<group>"; };
-		C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherView.swift; sourceTree = "<group>"; };
-		C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerTests.swift; sourceTree = "<group>"; };
+		C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherViewController.swift; sourceTree = "<group>"; };
+		C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterTests.swift; sourceTree = "<group>"; };
 		C901948F2B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIEncoder.swift; sourceTree = "<group>"; };
 		C90194912B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIDecoder.swift; sourceTree = "<group>"; };
 		C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIEncoderTests.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */,
-				C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */,
+				C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */,
 			);
 			path = TestDouble;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				C90194852B7F28D2003F9F0F /* TestDouble */,
-				C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */,
+				C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */,
 				C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */,
 				C90194952B7F5809003F9F0F /* YumemiWeatherAPIDecoderTests.swift */,
 			);
@@ -408,9 +408,9 @@
 			files = (
 				C90194942B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift in Sources */,
 				C90194962B7F5809003F9F0F /* YumemiWeatherAPIDecoderTests.swift in Sources */,
-				C901948B2B7F3139003F9F0F /* WeatherViewControllerTests.swift in Sources */,
+				C901948B2B7F3139003F9F0F /* WeatherPresenterTests.swift in Sources */,
 				C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */,
-				C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */,
+				C90194892B7F2E7B003F9F0F /* SpyWeatherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
