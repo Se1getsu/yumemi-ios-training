@@ -13,7 +13,7 @@ final class WeatherViewController: UIViewController {
     
     private let myView: WeatherViewProtocol
     
-    // MARK: Dependencies
+    // MARK: Properties - Dependencies
     
     private let weatherInfoRepository: WeatherInfoRepositoryProtocol
     
