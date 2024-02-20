@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol WeatherPresenterInput {
     /// 画面がフォアグラウンドになる時の処理
     func willEnterForeground()
