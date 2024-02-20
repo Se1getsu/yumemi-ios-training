@@ -26,7 +26,7 @@ final class WeatherViewControllerTests: XCTestCase {
     // MARK: - Properties
     
     /// API通信の待機時間
-    let apiInterval: Double = 0.1
+    let apiInterval: Double = 0.01
     
     // MARK: - Tests
     
