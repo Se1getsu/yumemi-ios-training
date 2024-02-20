@@ -36,7 +36,7 @@ final class WeatherView: UIView, WeatherViewProtocol {
         return label
     }()
     
-    let minimumTemperatureLabel: UILabel = {
+    let lowestTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
         label.font = .preferredFont(forTextStyle: .body)
@@ -45,7 +45,7 @@ final class WeatherView: UIView, WeatherViewProtocol {
         return label
     }()
     
-    let highTemperatureLabel: UILabel = {
+    let highestTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemRed
         label.font = .preferredFont(forTextStyle: .body)
@@ -91,8 +91,8 @@ private extension WeatherView {
         addSubview(weatherFrame)
         addSubview(weatherImageView)
         addSubview(weatherImagePlaceholderLabel)
-        addSubview(minimumTemperatureLabel)
-        addSubview(highTemperatureLabel)
+        addSubview(lowestTemperatureLabel)
+        addSubview(highestTemperatureLabel)
         addSubview(closeButton)
         addSubview(reloadButton)
         addSubview(activityIndicator)
@@ -125,31 +125,31 @@ private extension WeatherView {
             weatherImagePlaceholderLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor)
         ])
         
-        minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        lowestTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            minimumTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
-            minimumTemperatureLabel.bottomAnchor.constraint(equalTo: weatherFrame.bottomAnchor),
-            minimumTemperatureLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
-            minimumTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
+            lowestTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
+            lowestTemperatureLabel.bottomAnchor.constraint(equalTo: weatherFrame.bottomAnchor),
+            lowestTemperatureLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
+            lowestTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
         ])
         
-        highTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        highestTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            highTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
-            highTemperatureLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor),
-            highTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
+            highestTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
+            highestTemperatureLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor),
+            highestTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
         ])
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: minimumTemperatureLabel.bottomAnchor, constant: 80),
-            closeButton.centerXAnchor.constraint(equalTo: minimumTemperatureLabel.centerXAnchor)
+            closeButton.topAnchor.constraint(equalTo: lowestTemperatureLabel.bottomAnchor, constant: 80),
+            closeButton.centerXAnchor.constraint(equalTo: lowestTemperatureLabel.centerXAnchor)
         ])
         
         reloadButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            reloadButton.topAnchor.constraint(equalTo: highTemperatureLabel.bottomAnchor, constant: 80),
-            reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
+            reloadButton.topAnchor.constraint(equalTo: highestTemperatureLabel.bottomAnchor, constant: 80),
+            reloadButton.centerXAnchor.constraint(equalTo: highestTemperatureLabel.centerXAnchor)
         ])
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false

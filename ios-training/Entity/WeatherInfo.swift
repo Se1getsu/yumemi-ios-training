@@ -12,7 +12,7 @@ struct WeatherInfo {
     /// 天気
     let weather: Weather
     /// 最高気温
-    let highTemperature: Int
+    let highestTemperature: Int
     /// 最低気温
-    let minimumTemperature: Int
+    let lowestTemperature: Int
 }

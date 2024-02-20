@@ -81,8 +81,8 @@ private extension WeatherViewController {
                 DispatchQueue.main.async {
                     self.myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
                     self.myView.weatherImageView.tintColor = self.imageTint(for: weatherInfo.weather)
-                    self.myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
-                    self.myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
+                    self.myView.lowestTemperatureLabel.text = weatherInfo.lowestTemperature.description
+                    self.myView.highestTemperatureLabel.text = weatherInfo.highestTemperature.description
                 }
             } catch {
                 // 読み込み失敗
@@ -99,8 +99,8 @@ private extension WeatherViewController {
                     self.myView.weatherImageView.image = nil
                     self.myView.weatherImagePlaceholderLabel.text = "取得エラー"
                     self.myView.weatherImagePlaceholderLabel.isHidden = false
-                    self.myView.minimumTemperatureLabel.text = "--"
-                    self.myView.highTemperatureLabel.text = "--"
+                    self.myView.lowestTemperatureLabel.text = "--"
+                    self.myView.highestTemperatureLabel.text = "--"
                 }
             }
         }

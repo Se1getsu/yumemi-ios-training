@@ -16,8 +16,8 @@ protocol WeatherViewProtocol: UIView {
     
     var weatherImageView: UIImageView { get }
     var weatherImagePlaceholderLabel: UILabel { get }
-    var minimumTemperatureLabel: UILabel { get }
-    var highTemperatureLabel: UILabel { get }
+    var lowestTemperatureLabel: UILabel { get }
+    var highestTemperatureLabel: UILabel { get }
     var closeButton: UIButton { get }
     var reloadButton: UIButton { get }
     var activityIndicator: UIActivityIndicatorView { get }

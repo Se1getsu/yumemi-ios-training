@@ -14,7 +14,7 @@ final class YumemiWeatherAPIDecoderTests: XCTestCase {
         let jsonString = #"{"max_temperature":25,"date":"2020-04-01T12:00:00+09:00","min_temperature":7,"weather_condition":"cloudy"}"#
         let weatherInfo = try decoder.decodeResponse(jsonString)
         XCTAssertEqual(weatherInfo.weather, .cloudy)
-        XCTAssertEqual(weatherInfo.highTemperature, 25)
-        XCTAssertEqual(weatherInfo.minimumTemperature, 7)
+        XCTAssertEqual(weatherInfo.highestTemperature, 25)
+        XCTAssertEqual(weatherInfo.lowestTemperature, 7)
     }
 }

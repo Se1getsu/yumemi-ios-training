@@ -18,8 +18,8 @@ class SpyWeatherView: UIView, WeatherViewProtocol {
     let activityIndicator = UIActivityIndicatorView()
     let weatherImageView = UIImageView()
     let weatherImagePlaceholderLabel = UILabel()
-    let minimumTemperatureLabel = UILabel()
-    let highTemperatureLabel = UILabel()
+    let lowestTemperatureLabel = UILabel()
+    let highestTemperatureLabel = UILabel()
     let closeButton = UIButton()
     let reloadButton = UIButton()
 }

@@ -43,8 +43,8 @@ private extension YumemiWeatherAPIDecoder {
             }
             return WeatherInfo(
                 weather: weather,
-                highTemperature: maxTemperature,
-                minimumTemperature: minTemperature
+                highestTemperature: maxTemperature,
+                lowestTemperature: minTemperature
             )
         }
     }

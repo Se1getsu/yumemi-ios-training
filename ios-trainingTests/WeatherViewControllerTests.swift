@@ -13,10 +13,10 @@ import XCTest
 private extension WeatherInfo {
     static func make(
         weather: Weather = .cloudy,
-        highTemperature: Int = 20,
-        minimumTemperature: Int = 10
+        highestTemperature: Int = 20,
+        lowestTemperature: Int = 10
     ) -> Self {
-        WeatherInfo(weather: weather, highTemperature: highTemperature, minimumTemperature: minimumTemperature)
+        WeatherInfo(weather: weather, highestTemperature: highestTemperature, lowestTemperature: lowestTemperature)
     }
 }
 
@@ -69,10 +69,10 @@ final class WeatherViewControllerTests: XCTestCase {
         let vc = WeatherViewController(view: view, weatherInfoRepository: weatherInfoRepository)
         
         // 更新ボタンを押して気温を読み込む
-        weatherInfoRepository.willFetch = .make(highTemperature: 20, minimumTemperature: 10)
+        weatherInfoRepository.willFetch = .make(highestTemperature: 20, lowestTemperature: 10)
         vc.didTapReloadButton()
         _ = XCTWaiter.wait(for: [expectation(description: "読み込みが終わるまで待機")], timeout: apiInterval)
-        XCTAssertEqual(view.highTemperatureLabel.text, "20")
-        XCTAssertEqual(view.minimumTemperatureLabel.text, "10")
+        XCTAssertEqual(view.highestTemperatureLabel.text, "20")
+        XCTAssertEqual(view.lowestTemperatureLabel.text, "10")
     }
 }
