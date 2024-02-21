@@ -13,7 +13,15 @@ final class AreaListViewController: UIViewController {
     
     private let myView = AreaListView()
     
+    // MARK: Properties - Dependencies
+    
+    private var presenter: AreaListPresenterInput!
+    
     // MARK: Lifecycle
+    
+    func inject(presenter: AreaListPresenterInput) {
+        self.presenter = presenter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,17 +34,17 @@ final class AreaListViewController: UIViewController {
 
 extension AreaListViewController: AreaListViewEventHandler {
     var areas: [Area] {
-        Area.allCases
+        presenter.areas
     }
     
     func didSelectRowAt(_ index: Int) {
-        transitToWeatherView()
+        presenter.didSelectRowAt(index)
     }
 }
 
-// MARK: - Private
+// MARK: - AreaListPresetnerOutput
 
-private extension AreaListViewController {
+extension AreaListViewController: AreaListPresetnerOutput {
     func transitToWeatherView() {
         let vc = WeatherViewController()
         let presenter = WeatherPresenter(

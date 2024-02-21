@@ -28,6 +28,9 @@
 		C96D2A0D2B85B78C00746EF7 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A0C2B85B78C00746EF7 /* Area.swift */; };
 		C96D2A0F2B85BF6E00746EF7 /* AreaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A0E2B85BF6E00746EF7 /* AreaListView.swift */; };
 		C96D2A112B85C3A200746EF7 /* AreaListViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A102B85C3A200746EF7 /* AreaListViewEventHandler.swift */; };
+		C96D2A132B85C8AA00746EF7 /* AreaListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A122B85C8AA00746EF7 /* AreaListPresenter.swift */; };
+		C96D2A152B85C8B900746EF7 /* AreaListPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */; };
+		C96D2A172B85C8C700746EF7 /* AreaListPresetnerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9AB86B52B7E08C500B24D6A /* AreaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */; };
 		C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */; };
@@ -83,6 +86,9 @@
 		C96D2A0C2B85B78C00746EF7 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		C96D2A0E2B85BF6E00746EF7 /* AreaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListView.swift; sourceTree = "<group>"; };
 		C96D2A102B85C3A200746EF7 /* AreaListViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListViewEventHandler.swift; sourceTree = "<group>"; };
+		C96D2A122B85C8AA00746EF7 /* AreaListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresenter.swift; sourceTree = "<group>"; };
+		C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresenterInput.swift; sourceTree = "<group>"; };
+		C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresetnerOutput.swift; sourceTree = "<group>"; };
 		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 		C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListViewController.swift; sourceTree = "<group>"; };
 		C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepository.swift; sourceTree = "<group>"; };
@@ -238,6 +244,9 @@
 				C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */,
 				C96D2A0E2B85BF6E00746EF7 /* AreaListView.swift */,
 				C96D2A102B85C3A200746EF7 /* AreaListViewEventHandler.swift */,
+				C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */,
+				C96D2A122B85C8AA00746EF7 /* AreaListPresenter.swift */,
+				C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -395,11 +404,14 @@
 				C9BAAEF62B849E9E001EB3AD /* WeatherViewEventHandler.swift in Sources */,
 				C969708F2B7B284800AC4675 /* WeatherPresenter.swift in Sources */,
 				C96D2A0F2B85BF6E00746EF7 /* AreaListView.swift in Sources */,
+				C96D2A132B85C8AA00746EF7 /* AreaListPresenter.swift in Sources */,
 				C96970912B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift in Sources */,
 				C96D2A112B85C3A200746EF7 /* AreaListViewEventHandler.swift in Sources */,
+				C96D2A172B85C8C700746EF7 /* AreaListPresetnerOutput.swift in Sources */,
 				C9BAAEF22B849D10001EB3AD /* WeatherView.swift in Sources */,
 				C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */,
 				C9BAAEF82B84A69A001EB3AD /* UIColor.swift in Sources */,
+				C96D2A152B85C8B900746EF7 /* AreaListPresenterInput.swift in Sources */,
 				C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */,
 				C96D2A0D2B85B78C00746EF7 /* Area.swift in Sources */,
 				C9F473B02B7C834000FFD217 /* WeatherPresenterInput.swift in Sources */,
