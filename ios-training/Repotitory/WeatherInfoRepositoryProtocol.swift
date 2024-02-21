@@ -10,5 +10,5 @@ import Foundation
 /// 天気に関する情報を取得するリポジトリ
 protocol WeatherInfoRepositoryProtocol {
     /// 天気に関する情報を取得する
-    func fetch(at area: String, date: Date) async throws -> WeatherInfo
+    func fetch(at areas: [String], date: Date) async throws -> [WeatherInfo]
 }

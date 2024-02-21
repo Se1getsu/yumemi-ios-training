@@ -53,7 +53,7 @@ private extension WeatherPresenter {
                 view.finishLoading()
             }
             do {
-                let weatherInfo = try await self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
+                let weatherInfo = try await self.weatherInfoRepository.fetch(at: ["Tokyo"], date: Date()).first!
                 view.showWeatherInfo(weatherInfo: weatherInfo)
             } catch {
                 view.showFetchErrorAlert()
