@@ -63,5 +63,14 @@ extension AreaListViewController: AreaListPresetnerOutput {
 // MARK: - Preview
 
 #Preview {
-    return AreaListViewController()
+    let vc = AreaListViewController()
+    let presenter = AreaListPresenter(
+        view: vc,
+        weatherInfoRepository: WeatherInfoRepository(
+            apiEncoder: YumemiWeatherAPIEncoder(),
+            apiDecoder: YumemiWeatherAPIDecoder()
+        )
+    )
+    vc.inject(presenter: presenter)
+    return vc
 }

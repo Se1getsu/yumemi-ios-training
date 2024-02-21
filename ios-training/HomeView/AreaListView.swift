@@ -11,7 +11,7 @@ import UIKit
 final class AreaListView: UIView {
     // MARK: Properties
     
-    weak var eventHandler: AreaListViewEventHandler!
+    weak var eventHandler: AreaListViewEventHandler?
     
     // MARK: Properties - UI
     
@@ -41,13 +41,13 @@ final class AreaListView: UIView {
 
 extension AreaListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        eventHandler.areas.count
+        eventHandler?.areas.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = eventHandler.areas[indexPath.row].description
+        content.text = eventHandler?.areas[indexPath.row].description
         cell.contentConfiguration = content
         return cell
     }
@@ -56,7 +56,7 @@ extension AreaListView: UITableViewDataSource {
 extension AreaListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        eventHandler.didSelectRowAt(indexPath.row)
+        eventHandler?.didSelectRowAt(indexPath.row)
     }
 }
 
@@ -80,4 +80,11 @@ private extension AreaListView {
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
+}
+
+// MARK: - Preview
+#Preview {
+    let view = AreaListView()
+    view.tableView.backgroundColor = .green.withAlphaComponent(0.2)
+    return PreviewViewController(view: view)
 }
