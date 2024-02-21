@@ -14,4 +14,13 @@ protocol AreaListPresenterInput {
     
     /// セルがタップされた時の処理
     func didSelectRowAt(_ index: Int)
+    
+    /// 特定の地域の天気に関する情報を取得する
+    func weatherInfoAt(_ area: Area) -> WeatherInfo?
+    
+    /// viewDidAppearで行う処理
+    func viewDidAppear()
+    
+    /// アラートのRetryボタンが押された時の処理
+    func didTapRetry()
 }

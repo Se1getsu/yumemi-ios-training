@@ -9,6 +9,11 @@ import Foundation
 
 @MainActor
 final class AreaListPresenter {
+    // MARK: Properties
+    
+    let areas: [Area] = Area.allCases
+    var weatherInfos: [Area: WeatherInfo] = [:]
+    
     // MARK: Properties - Dependencies
     
     private weak var view: AreaListPresetnerOutput!
@@ -22,12 +27,41 @@ final class AreaListPresenter {
     }
 }
 
+// MARK: - AreaListPresenterInput
+
 extension AreaListPresenter: AreaListPresenterInput {
-    var areas: [Area] {
-        Area.allCases
-    }
-    
     func didSelectRowAt(_ index: Int) {
         view.transitToWeatherView()
+    }
+    
+    func weatherInfoAt(_ area: Area) -> WeatherInfo? {
+        weatherInfos[area]
+    }
+    
+    func viewDidAppear() {
+        loadWeatherInfo()
+    }
+    
+    func didTapRetry() {
+        loadWeatherInfo()
+    }
+}
+
+// MARK: - Private
+
+private extension AreaListPresenter {
+    func loadWeatherInfo() {
+        view.startLoading()
+        Task {
+            defer {
+                view.finishLoading()
+            }
+            do {
+                let weatherInfoList = try await self.weatherInfoRepository.fetch(at: areas, date: Date())
+                view.reloadData()
+            } catch {
+                view.showFetchErrorAlert()
+            }
+        }
     }
 }

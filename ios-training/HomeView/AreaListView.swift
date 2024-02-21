@@ -21,6 +21,8 @@ final class AreaListView: UIView {
         return tableView
     }()
     
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
@@ -66,6 +68,7 @@ private extension AreaListView {
     /// UIをaddSubViewする処理
     func addSubviewUIs() {
         addSubview(tableView)
+        addSubview(activityIndicator)
     }
     
     /// オートレイアウトの設定処理
@@ -78,6 +81,14 @@ private extension AreaListView {
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
 }

@@ -28,6 +28,10 @@ final class AreaListViewController: UIViewController {
         view = myView
         myView.eventHandler = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter.viewDidAppear()
+    }
 }
 
 // MARK: - AreaListViewEventHandler
@@ -57,6 +61,30 @@ extension AreaListViewController: AreaListPresetnerOutput {
         vc.inject(presenter: presenter)
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+    }
+    
+    func startLoading() {
+        myView.activityIndicator.startAnimating()
+    }
+    
+    func finishLoading() {
+        myView.activityIndicator.stopAnimating()
+    }
+    
+    func reloadData() {
+        myView.tableView.reloadData()
+    }
+    
+    func showFetchErrorAlert() {
+        let alert = AlertMaker.retryOrCancelAlert(
+            title: "天気の取得に失敗しました",
+            message: "再試行しますか？",
+            didTapRetry: { [unowned self] _ in
+                presenter.didTapRetry()
+            },
+            didTapCancel: nil
+        )
+        present(alert, animated: true)
     }
 }
 
