@@ -64,6 +64,6 @@ private extension WeatherPresenter {
     /// 天気を読み込む
     func loadWeather() {
         view.startLoading()
-        weatherInfoRepository.fetch(at: "tokyo", date: Date())
+        weatherInfoRepository.requestFetch(at: "tokyo", date: Date())
     }
 }

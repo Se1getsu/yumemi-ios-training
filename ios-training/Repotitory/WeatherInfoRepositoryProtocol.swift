@@ -15,8 +15,8 @@ protocol WeatherInfoRepositoryProtocol {
     
     // MARK: Functions
     
-    /// 天気に関する情報を取得する
+    /// 天気に関する情報を取得をリクエストする
     ///
     /// 取得の結果は`delegate`で通知される。
-    func fetch(at area: String, date: Date)
+    func requestFetch(at area: String, date: Date)
 }

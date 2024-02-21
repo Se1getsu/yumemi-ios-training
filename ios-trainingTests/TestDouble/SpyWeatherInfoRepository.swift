@@ -27,7 +27,7 @@ final class SpyWeatherInfoRepository {
 
 extension SpyWeatherInfoRepository: WeatherInfoRepositoryProtocol {
     
-    func fetch(at area: String, date: Date) {
+    func requestFetch(at area: String, date: Date) {
         areaInput = area
         dateInput = date
         delegate?.didFetch(result: .success(willFetch))

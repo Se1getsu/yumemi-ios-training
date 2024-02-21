@@ -28,8 +28,8 @@ struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
     
     // MARK: Internal
     
-    /// 天気に関する情報を取得する
-    func fetch(at area: String, date: Date) {
+    /// 天気に関する情報を取得をリクエストする
+    func requestFetch(at area: String, date: Date) {
         DispatchQueue.global().async {
             do {
                 let query = try apiEncoder.encodeQuery(at: area, date: date)
