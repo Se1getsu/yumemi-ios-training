@@ -12,11 +12,11 @@ extension UIColor {
     static func weatherTint(for weather: Weather) -> UIColor {
         switch weather {
         case .sunny:
-            UIColor.systemRed
+            .systemRed
         case .cloudy:
-            UIColor.systemGray
+            .systemGray
         case .rainy:
-            UIColor.tintColor
+            .tintColor
         }
     }
 }
