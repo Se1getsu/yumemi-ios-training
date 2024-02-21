@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class WeatherView: UIView, WeatherViewProtocol {
+/// WeatherViewControllerのUIの配置を行う
+final class WeatherView: UIView {
     // MARK: Properties
     
     weak var eventHandler: WeatherViewEventHandler?
@@ -55,18 +56,18 @@ final class WeatherView: UIView, WeatherViewProtocol {
     }()
     
     let closeButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Close", for: .normal)
-        button.setTitleColor(.tintColor, for: .normal)
         return button
     }()
     
     let reloadButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Reload", for: .normal)
-        button.setTitleColor(.tintColor, for: .normal)
         return button
     }()
+    
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: Lifecycle
     
@@ -95,10 +96,11 @@ private extension WeatherView {
         addSubview(highTemperatureLabel)
         addSubview(closeButton)
         addSubview(reloadButton)
+        addSubview(activityIndicator)
     }
     
     /// オートレイアウトの設定処理
-    func setUpLayout() {
+    func setUpLayout() { // swiftlint:disable:this function_body_length
         let safeArea = safeAreaLayoutGuide
         
         weatherFrame.translatesAutoresizingMaskIntoConstraints = false
@@ -149,6 +151,14 @@ private extension WeatherView {
         NSLayoutConstraint.activate([
             reloadButton.topAnchor.constraint(equalTo: highTemperatureLabel.bottomAnchor, constant: 80),
             reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
+        ])
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
     
