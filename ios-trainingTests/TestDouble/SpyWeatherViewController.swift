@@ -8,7 +8,7 @@
 import XCTest
 @testable import ios_training
 
-class SpyWeatherViewController: WeatherPresenterOutput {
+class SpyWeatherViewController {
     // MARK: Properties - Output
     
     var receivedWeatherInfo: WeatherInfo?
@@ -16,7 +16,11 @@ class SpyWeatherViewController: WeatherPresenterOutput {
     // MARK: Properties - Expectations
     
     var showWeatherInfoExpectation: XCTestExpectation?
-    
+}
+
+// MARK: WeatherPresenterOutput
+
+extension SpyWeatherViewController: WeatherPresenterOutput {
     func dismiss() {
     }
     
