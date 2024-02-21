@@ -9,6 +9,10 @@ import Foundation
 @testable import ios_training
 
 final class SpyWeatherInfoRepository {
+    // MARK: Properties
+    
+    weak var delegate: WeatherInfoRepositoryDelegate?
+    
     // MARK: Input
     
     var areaInput: String? = nil
@@ -22,9 +26,10 @@ final class SpyWeatherInfoRepository {
 // MARK: - WeatherInfoRepository
 
 extension SpyWeatherInfoRepository: WeatherInfoRepositoryProtocol {
-    func fetch(at area: String, date: Date) throws -> WeatherInfo {
+    
+    func fetch(at area: String, date: Date) {
         areaInput = area
         dateInput = date
-        return willFetch
+        delegate?.didFetch(result: .success(willFetch))
     }
 }
