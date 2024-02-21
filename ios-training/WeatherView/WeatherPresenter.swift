@@ -18,6 +18,7 @@ final class WeatherPresenter: WeatherPresenterInput {
     init(view: WeatherPresenterOutput, weatherInfoRepository: WeatherInfoRepositoryProtocol) {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
+        self.weatherInfoRepository.delegate = self
     }
     
     func willEnterForeground() {
@@ -37,30 +38,32 @@ final class WeatherPresenter: WeatherPresenterInput {
     }
 }
 
+// MARK: WeatherInfoRepositoryDelegate
+
+extension WeatherPresenter: WeatherInfoRepositoryDelegate {
+    func didFetch(result: Result<WeatherInfo, Error>) {
+        switch result {
+        case .success(let weatherInfo):
+            DispatchQueue.main.async {
+                self.view.showWeatherInfo(weatherInfo: weatherInfo)
+            }
+        case .failure:
+            DispatchQueue.main.async {
+                self.view.showFetchErrorAlert()
+            }
+        }
+        DispatchQueue.main.async {
+            self.view.finishLoading()
+        }
+    }
+}
+
 // MARK: - Private
 
 private extension WeatherPresenter {
     /// 天気を読み込む
     func loadWeather() {
         view.startLoading()
-        DispatchQueue.global().async {
-            defer {
-                DispatchQueue.main.async {
-                    self.view.finishLoading()
-                }
-            }
-            do {
-                let weatherInfo = try self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
-                // 読み込み成功
-                DispatchQueue.main.async {
-                    self.view.showWeatherInfo(weatherInfo: weatherInfo)
-                }
-            } catch {
-                // 読み込み失敗
-                DispatchQueue.main.async {
-                    self.view.showFetchErrorAlert()
-                }
-            }
-        }
+        weatherInfoRepository.fetch(at: "tokyo", date: Date())
     }
 }
