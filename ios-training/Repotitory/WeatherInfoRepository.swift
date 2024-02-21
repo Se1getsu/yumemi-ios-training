@@ -10,10 +10,6 @@ import YumemiWeather
 
 /// YumemiWeather から天気に関する情報を取得するリポジトリ
 struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
-    // MARK: Properties
-    
-    weak var delegate: WeatherInfoRepositoryDelegate?
-    
     // MARK: Dependencies
     
     private let apiEncoder: YumemiWeatherAPIEncoder
@@ -28,16 +24,16 @@ struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
     
     // MARK: Internal
     
-    /// 天気に関する情報を取得をリクエストする
-    func requestFetch(at area: String, date: Date) {
+    /// 天気に関する情報を取得する
+    func fetch(at area: String, date: Date, completion: @escaping (Result<WeatherInfo, Error>) -> Void) {
         DispatchQueue.global().async {
             do {
                 let query = try apiEncoder.encodeQuery(at: area, date: date)
                 let response = try YumemiWeather.syncFetchWeather(query)
                 let weatherInfo = try apiDecoder.decodeResponse(response)
-                delegate?.didFetch(result: .success(weatherInfo))
+                completion(.success(weatherInfo))
             } catch {
-                delegate?.didFetch(result: .failure(error))
+                completion(.failure(error))
             }
         }
     }

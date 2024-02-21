@@ -85,7 +85,6 @@
 		C9BAAEF12B849D10001EB3AD /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		C9BAAEF52B849E9E001EB3AD /* WeatherViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewEventHandler.swift; sourceTree = "<group>"; };
 		C9BAAEF72B84A69A001EB3AD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		C9BAAEEB2B8318B5001EB3AD /* WeatherInfoRepositoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepositoryDelegate.swift; sourceTree = "<group>"; };
 		C9C956BA2B7CB07900A1BC63 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		C9D1AC952B7DF657001987A2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C9D1AC982B7E005E001987A2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 			children = (
 				C96970902B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift */,
 				C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */,
-				C9BAAEEB2B8318B5001EB3AD /* WeatherInfoRepositoryDelegate.swift */,
 				C901948F2B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift */,
 				C90194912B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift */,
 			);
@@ -399,7 +397,6 @@
 				C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */,
 				C9AB86B52B7E08C500B24D6A /* HomeViewController.swift in Sources */,
 				C96970592B7AFDDF00AC4675 /* AppDelegate.swift in Sources */,
-				C9BAAEEC2B8318B5001EB3AD /* WeatherInfoRepositoryDelegate.swift in Sources */,
 				C9C956BB2B7CB07900A1BC63 /* WeatherInfo.swift in Sources */,
 				C96970952B7B353F00AC4675 /* Weather.swift in Sources */,
 				C969705B2B7AFDDF00AC4675 /* SceneDelegate.swift in Sources */,
