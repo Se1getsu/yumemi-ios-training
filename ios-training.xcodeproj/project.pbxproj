@@ -25,6 +25,7 @@
 		C969708F2B7B284800AC4675 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969708E2B7B284800AC4675 /* WeatherPresenter.swift */; };
 		C96970912B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970902B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift */; };
 		C96970952B7B353F00AC4675 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970942B7B353F00AC4675 /* Weather.swift */; };
+		C96D2A0D2B85B78C00746EF7 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A0C2B85B78C00746EF7 /* Area.swift */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9AB86B52B7E08C500B24D6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B42B7E08C500B24D6A /* HomeViewController.swift */; };
 		C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */; };
@@ -77,6 +78,7 @@
 		C969708E2B7B284800AC4675 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		C96970902B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepositoryProtocol.swift; sourceTree = "<group>"; };
 		C96970942B7B353F00AC4675 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		C96D2A0C2B85B78C00746EF7 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 		C9AB86B42B7E08C500B24D6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepository.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		C96970972B7B36EE00AC4675 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				C96D2A0C2B85B78C00746EF7 /* Area.swift */,
 				C96970942B7B353F00AC4675 /* Weather.swift */,
 				C9C956BA2B7CB07900A1BC63 /* WeatherInfo.swift */,
 			);
@@ -390,6 +393,7 @@
 				C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */,
 				C9BAAEF82B84A69A001EB3AD /* UIColor.swift in Sources */,
 				C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */,
+				C96D2A0D2B85B78C00746EF7 /* Area.swift in Sources */,
 				C9F473B02B7C834000FFD217 /* WeatherPresenterInput.swift in Sources */,
 				C90194922B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift in Sources */,
 				C90194902B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift in Sources */,

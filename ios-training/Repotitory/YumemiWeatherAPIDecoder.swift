@@ -32,7 +32,7 @@ struct YumemiWeatherAPIDecoder {
 private extension YumemiWeatherAPIDecoder {
     /// YumemiWeather.fetchWeather のレスポンスの要素
     struct APIResponse: Decodable {
-        let area: String
+        let area: Area
         let info: Info
     }
     

@@ -13,7 +13,7 @@ struct YumemiWeatherAPIEncoder {
     
     /// `YumemiWeather.fetchWeather(_:)` のクエリをJSON文字列にエンコードする
     /// - throws: エンコードに失敗した場合はそれに対応するエラーを投げる
-    func encodeQuery(at areas: [String], date: Date) throws -> String {
+    func encodeQuery(at areas: [Area], date: Date) throws -> String {
         let query = Query(areas: areas, date: date)
         let queryData = try Self.encoder.encode(query)
         return String(data: queryData, encoding: .utf8)!
@@ -24,7 +24,7 @@ struct YumemiWeatherAPIEncoder {
 
 private extension YumemiWeatherAPIEncoder {
     struct Query: Encodable {
-        let areas: [String]
+        let areas: [Area]
         let date: Date
     }
     
