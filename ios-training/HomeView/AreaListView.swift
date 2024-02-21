@@ -17,7 +17,7 @@ final class AreaListView: UIView {
     
     let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(AreaCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
     
@@ -48,12 +48,17 @@ extension AreaListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = eventHandler?.areas[indexPath.row].description
-        cell.contentConfiguration = content
+        guard let cell = cell as? AreaCell,
+              let area = eventHandler?.areas[indexPath.row] else { return cell }
+        cell.areaLabel.text = area.description
+        if let weatherInfo = eventHandler?.weatherInfoAt(area) {
+            cell.loadWeatherInfo(weatherInfo)
+        }
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension AreaListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -20,10 +20,10 @@ struct YumemiWeatherAPIDecoder {
     
     /// `YumemiWeather.fetchWeather(_:)` のレスポンスをエンティティにデコードする
     /// - throws: 予期せぬものを取得した場合は WeatherRepository.APIError を投げる
-    func decodeResponse(_ jsonString: String) throws -> [WeatherInfo] {
+    func decodeResponse(_ jsonString: String) throws -> [Area: WeatherInfo] {
         let data = jsonString.data(using: .utf8)!
         let response = try Self.decoder.decode([APIResponse].self, from: data)
-        return try response.map { try $0.info.convertToEntity() }
+        return try response.convertToEntity()
     }
 }
 
@@ -60,4 +60,14 @@ private extension YumemiWeatherAPIDecoder {
         decorder.dateDecodingStrategy = .iso8601
         return decorder
     }()
+}
+
+private extension [YumemiWeatherAPIDecoder.APIResponse] {
+    func convertToEntity() throws -> [Area: WeatherInfo] {
+        var dictionary: [Area: WeatherInfo] = [:]
+        for response in self {
+            dictionary[response.area] = try response.info.convertToEntity()
+        }
+        return dictionary
+    }
 }

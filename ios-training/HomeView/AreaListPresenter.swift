@@ -57,7 +57,7 @@ private extension AreaListPresenter {
                 view.finishLoading()
             }
             do {
-                let weatherInfoList = try await self.weatherInfoRepository.fetch(at: areas, date: Date())
+                weatherInfos = try await self.weatherInfoRepository.fetch(at: areas, date: Date())
                 view.reloadData()
             } catch {
                 view.showFetchErrorAlert()

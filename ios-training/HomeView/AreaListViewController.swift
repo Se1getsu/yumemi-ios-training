@@ -41,6 +41,10 @@ extension AreaListViewController: AreaListViewEventHandler {
         presenter.areas
     }
     
+    func weatherInfoAt(_ area: Area) -> WeatherInfo? {
+        presenter.weatherInfoAt(area)
+    }
+    
     func didSelectRowAt(_ index: Int) {
         presenter.didSelectRowAt(index)
     }

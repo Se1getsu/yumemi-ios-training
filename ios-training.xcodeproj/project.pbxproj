@@ -31,6 +31,7 @@
 		C96D2A132B85C8AA00746EF7 /* AreaListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A122B85C8AA00746EF7 /* AreaListPresenter.swift */; };
 		C96D2A152B85C8B900746EF7 /* AreaListPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */; };
 		C96D2A172B85C8C700746EF7 /* AreaListPresetnerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */; };
+		C96D2A1A2B85D3CB00746EF7 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A192B85D3CB00746EF7 /* AreaCell.swift */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9AB86B52B7E08C500B24D6A /* AreaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */; };
 		C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */; };
@@ -89,6 +90,7 @@
 		C96D2A122B85C8AA00746EF7 /* AreaListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresenter.swift; sourceTree = "<group>"; };
 		C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresenterInput.swift; sourceTree = "<group>"; };
 		C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListPresetnerOutput.swift; sourceTree = "<group>"; };
+		C96D2A192B85D3CB00746EF7 /* AreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
 		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 		C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListViewController.swift; sourceTree = "<group>"; };
 		C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepository.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				C96970972B7B36EE00AC4675 /* Entity */,
 				C96970962B7B36D100AC4675 /* Repotitory */,
+				C96D2A182B85D37200746EF7 /* View */,
 				C9AB86B12B7E087C00B24D6A /* HomeView */,
 				C969709A2B7B3F2700AC4675 /* WeatherView */,
 				C99C9C9A2B7B65690090D5D0 /* Util */,
@@ -227,6 +230,14 @@
 				C9AB86BB2B7F06A200B24D6A /* WeatherPresenterOutput.swift */,
 			);
 			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		C96D2A182B85D37200746EF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C96D2A192B85D3CB00746EF7 /* AreaCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C99C9C9A2B7B65690090D5D0 /* Util */ = {
@@ -408,6 +419,7 @@
 				C96970912B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift in Sources */,
 				C96D2A112B85C3A200746EF7 /* AreaListViewEventHandler.swift in Sources */,
 				C96D2A172B85C8C700746EF7 /* AreaListPresetnerOutput.swift in Sources */,
+				C96D2A1A2B85D3CB00746EF7 /* AreaCell.swift in Sources */,
 				C9BAAEF22B849D10001EB3AD /* WeatherView.swift in Sources */,
 				C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */,
 				C9BAAEF82B84A69A001EB3AD /* UIColor.swift in Sources */,
