@@ -46,17 +46,13 @@ final class WeatherPresenter: WeatherPresenterInput {
 
 extension WeatherPresenter: WeatherInfoRepositoryDelegate {
     func didFetch(result: Result<WeatherInfo, Error>) {
-        switch result {
-        case .success(let weatherInfo):
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            switch result {
+            case .success(let weatherInfo):
                 self.view.showWeatherInfo(weatherInfo: weatherInfo)
-            }
-        case .failure:
-            DispatchQueue.main.async {
+            case .failure:
                 self.view.showFetchErrorAlert()
             }
-        }
-        DispatchQueue.main.async {
             self.view.finishLoading()
         }
     }

@@ -35,13 +35,9 @@ struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
                 let query = try apiEncoder.encodeQuery(at: area, date: date)
                 let response = try YumemiWeather.syncFetchWeather(query)
                 let weatherInfo = try apiDecoder.decodeResponse(response)
-                DispatchQueue.main.async {
-                    delegate?.didFetch(result: .success(weatherInfo))
-                }
+                delegate?.didFetch(result: .success(weatherInfo))
             } catch {
-                DispatchQueue.main.async {
-                    delegate?.didFetch(result: .failure(error))
-                }
+                delegate?.didFetch(result: .failure(error))
             }
         }
     }
