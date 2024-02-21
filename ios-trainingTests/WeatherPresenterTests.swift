@@ -22,6 +22,7 @@ private extension WeatherInfo {
 
 // MARK: - WeatherViewControllerTests
 
+@MainActor
 final class WeatherPresenterTests: XCTestCase {
     // MARK: - Properties
     
