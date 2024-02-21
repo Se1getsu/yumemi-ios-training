@@ -21,6 +21,10 @@ final class WeatherPresenter: WeatherPresenterInput {
         self.weatherInfoRepository.delegate = self
     }
     
+    deinit {
+        print("*", self, #function, "called")
+    }
+    
     func willEnterForeground() {
         loadWeather()
     }

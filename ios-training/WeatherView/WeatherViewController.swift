@@ -19,6 +19,10 @@ final class WeatherViewController: UIViewController {
     
     // MARK: Lifecycle
     
+    deinit {
+        print("*", Self.self, #function, "called")
+    }
+    
     func inject(presenter: WeatherPresenterInput) {
         self.presenter = presenter
     }
