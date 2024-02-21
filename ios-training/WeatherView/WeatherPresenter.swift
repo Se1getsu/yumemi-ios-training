@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class WeatherPresenter: WeatherPresenterInput {
+@MainActor
+final class WeatherPresenter {
     // MARK: Properties - Dependencies
     
     private weak var view: WeatherPresenterOutput!
@@ -19,7 +20,11 @@ final class WeatherPresenter: WeatherPresenterInput {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
     }
-    
+}
+
+// MARK: - WeatherPresenterInput
+
+extension WeatherPresenter: WeatherPresenterInput {
     func willEnterForeground() {
         loadWeather()
     }
