@@ -22,7 +22,7 @@ final class AreaCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .systemRed
         label.font = .preferredFont(forTextStyle: .subheadline)
-        label.textAlignment = .center
+        label.textAlignment = .right
         label.text = "--"
         return label
     }()
@@ -31,7 +31,7 @@ final class AreaCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .systemBlue
         label.font = .preferredFont(forTextStyle: .subheadline)
-        label.textAlignment = .center
+        label.textAlignment = .right
         label.text = "--"
         return label
     }()
@@ -64,14 +64,14 @@ private extension AreaCell {
     func addSubviewUIs() {
         contentView.addSubview(weatherImageView)
         contentView.addSubview(areaLabel)
-//        contentView.addSubview(highTemperatureLabel)
-//        contentView.addSubview(minimumTemperatureLabel)
+        contentView.addSubview(highTemperatureLabel)
+        contentView.addSubview(minimumTemperatureLabel)
     }
     
     func setUpLayout() {
         weatherImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            weatherImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+            weatherImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             weatherImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             weatherImageView.widthAnchor.constraint(equalToConstant: 32),
             weatherImageView.heightAnchor.constraint(equalToConstant: 32)
@@ -79,10 +79,26 @@ private extension AreaCell {
         
         areaLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            areaLabel.leadingAnchor.constraint(equalTo: weatherImageView.trailingAnchor, constant: 6),
-            areaLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+            areaLabel.leadingAnchor.constraint(equalTo: weatherImageView.trailingAnchor, constant: 8),
+            areaLabel.trailingAnchor.constraint(equalTo: minimumTemperatureLabel.leadingAnchor),
             areaLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             areaLabel.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        highTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            highTemperatureLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            highTemperatureLabel.widthAnchor.constraint(equalToConstant: 38),
+            highTemperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            highTemperatureLabel.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            minimumTemperatureLabel.trailingAnchor.constraint(equalTo: highTemperatureLabel.leadingAnchor),
+            minimumTemperatureLabel.widthAnchor.constraint(equalToConstant: 38),
+            minimumTemperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            minimumTemperatureLabel.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }
