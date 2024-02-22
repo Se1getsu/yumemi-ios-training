@@ -9,12 +9,12 @@ import Foundation
 @testable import ios_training
 
 final class SpyWeatherInfoRepository {
-    // MARK: Input
+    // MARK: Properties - Input
     
     var areaInput: String? = nil
     var dateInput: Date? = nil
     
-    // MARK: Output
+    // MARK: Properties - Output
     
     var willFetch: WeatherInfo!
 }

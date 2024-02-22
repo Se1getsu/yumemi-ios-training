@@ -10,7 +10,7 @@ import YumemiWeather
 
 /// YumemiWeather から天気に関する情報を取得するリポジトリ
 struct WeatherInfoRepository: WeatherInfoRepositoryProtocol {
-    // MARK: Dependencies
+    // MARK: Properties - Dependencies
     
     private let apiEncoder: YumemiWeatherAPIEncoder
     private let apiDecoder: YumemiWeatherAPIDecoder
