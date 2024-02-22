@@ -48,7 +48,7 @@ private extension WeatherPresenter {
     func loadWeather() {
         view.startLoading()
         weatherInfoRepository.fetch(at: "tokyo", date: Date()) { [weak self] result in
-            guard let `self` else { return }
+            guard let self else { return }
             defer {
                 DispatchQueue.main.async {
                     self.view.finishLoading()
