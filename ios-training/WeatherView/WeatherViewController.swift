@@ -9,24 +9,18 @@ import UIKit
 
 /// 天気を表示する画面
 final class WeatherViewController: UIViewController {
-    // MARK: Properties
+    // MARK: Properties - UI
     
-    private let myView: WeatherViewProtocol
+    private let myView = WeatherView()
     
     // MARK: Properties - Dependencies
     
-    private let weatherInfoRepository: WeatherInfoRepositoryProtocol
+    private var presenter: WeatherPresenterInput!
     
     // MARK: Lifecycle
     
-    init(view: WeatherViewProtocol = WeatherView(), weatherInfoRepository: WeatherInfoRepositoryProtocol) {
-        self.myView = view
-        self.weatherInfoRepository = weatherInfoRepository
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func inject(presenter: WeatherPresenterInput) {
+        self.presenter = presenter
     }
     
     override func viewDidLoad() {
@@ -39,7 +33,7 @@ final class WeatherViewController: UIViewController {
             object: nil,
             queue: nil
         ) { [weak self] _ in
-            self?.loadWeather()
+            self?.presenter.willEnterForeground()
         }
     }
 }
@@ -48,65 +42,70 @@ final class WeatherViewController: UIViewController {
 
 extension WeatherViewController: WeatherViewEventHandler {
     func didTapCloseButton() {
-        dismiss(animated: true)
+        presenter.didTapCloseButton()
     }
     
     func didTapReloadButton() {
-        loadWeather()
+        presenter.didTapReloadButton()
     }
 }
 
-// MARK: - Private
+// MARK: - WeatherViewPresenterInput
 
-private extension WeatherViewController {
-    /// 天気を読み込む
-    func loadWeather() {
-        myView.weatherImageView.image = nil
-        myView.weatherImagePlaceholderLabel.isHidden = true
-        do {
-            let weatherInfo = try weatherInfoRepository.fetch(at: "tokyo", date: Date())
-            myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
-            myView.weatherImageView.tintColor = imageTint(for: weatherInfo.weather)
-            myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
-            myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
-        } catch {
-            let alert = AlertMaker.retryOrCancelAlert(
-                title: "天気の取得に失敗しました",
-                message: "再試行しますか？",
-                didTapRetry: { [unowned self] _ in
-                    self.loadWeather()
-                },
-                didTapCancel: nil
-            )
-            present(alert, animated: true)
-            myView.weatherImageView.image = nil
-            myView.weatherImagePlaceholderLabel.text = "取得エラー"
-            myView.weatherImagePlaceholderLabel.isHidden = false
-            myView.minimumTemperatureLabel.text = "--"
-            myView.highTemperatureLabel.text = "--"
-        }
+extension WeatherViewController: WeatherPresenterOutput {
+    func dismiss() {
+        dismiss(animated: true)
     }
     
-    /// `weatherImageView.tintColor` に指定するための色を返す
-    func imageTint(for weather: Weather) -> UIColor {
-        switch weather {
-        case .sunny:
-            UIColor.systemRed
-        case .cloudy:
-            UIColor.systemGray
-        case .rainy:
-            UIColor.tintColor
-        }
+    func startLoading() {
+        myView.activityIndicator.startAnimating()
+        myView.weatherImagePlaceholderLabel.isHidden = true
+        myView.closeButton.isEnabled = false
+        myView.reloadButton.isEnabled = false
+    }
+    
+    func finishLoading() {
+        myView.activityIndicator.stopAnimating()
+        myView.closeButton.isEnabled = true
+        myView.reloadButton.isEnabled = true
+    }
+    
+    func showWeatherInfo(weatherInfo: WeatherInfo) {
+        myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+        myView.weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
+        myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+        myView.highTemperatureLabel.text = weatherInfo.highTemperature.description
+    }
+    
+    func showFetchErrorAlert() {
+        let alert = AlertMaker.retryOrCancelAlert(
+            title: "天気の取得に失敗しました",
+            message: "再試行しますか？",
+            didTapRetry: { [unowned self] _ in
+                presenter.didTapRetry()
+            },
+            didTapCancel: nil
+        )
+        present(alert, animated: true)
+        myView.weatherImageView.image = nil
+        myView.weatherImagePlaceholderLabel.text = "取得エラー"
+        myView.weatherImagePlaceholderLabel.isHidden = false
+        myView.minimumTemperatureLabel.text = "--"
+        myView.highTemperatureLabel.text = "--"
     }
 }
 
 // MARK: - Preview
 
 #Preview {
-    WeatherViewController(
+    let vc = WeatherViewController()
+    let presenter = WeatherPresenter(
+        view: vc,
         weatherInfoRepository: WeatherInfoRepository(
             apiEncoder: YumemiWeatherAPIEncoder(),
             apiDecoder: YumemiWeatherAPIDecoder()
         )
     )
+    vc.inject(presenter: presenter)
+    return vc
 }

@@ -11,6 +11,7 @@ import Foundation
 protocol WeatherViewEventHandler: AnyObject {
     /// Close ボタンが押された時の処理
     func didTapCloseButton()
+    
     /// Reload ボタンが押された時の処理
     func didTapReloadButton()
 }

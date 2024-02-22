@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */; };
-		C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */; };
-		C901948B2B7F3139003F9F0F /* WeatherViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */; };
+		C90194892B7F2E7B003F9F0F /* SpyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */; };
+		C901948B2B7F3139003F9F0F /* WeatherPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */; };
 		C90194902B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901948F2B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift */; };
 		C90194922B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194912B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift */; };
 		C90194942B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */; };
@@ -22,17 +22,20 @@
 		C969707A2B7AFDE000AC4675 /* ios_trainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970792B7AFDE000AC4675 /* ios_trainingUITests.swift */; };
 		C969707C2B7AFDE000AC4675 /* ios_trainingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969707B2B7AFDE000AC4675 /* ios_trainingUITestsLaunchTests.swift */; };
 		C969708A2B7AFE4400AC4675 /* YumemiWeather in Frameworks */ = {isa = PBXBuildFile; productRef = C96970892B7AFE4400AC4675 /* YumemiWeather */; };
-		C969708F2B7B284800AC4675 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969708E2B7B284800AC4675 /* WeatherView.swift */; };
+		C969708F2B7B284800AC4675 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C969708E2B7B284800AC4675 /* WeatherPresenter.swift */; };
 		C96970912B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970902B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift */; };
 		C96970952B7B353F00AC4675 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96970942B7B353F00AC4675 /* Weather.swift */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9AB86B52B7E08C500B24D6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B42B7E08C500B24D6A /* HomeViewController.swift */; };
 		C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */; };
-		C9AB86BC2B7F06A200B24D6A /* WeatherViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86BB2B7F06A200B24D6A /* WeatherViewProtocol.swift */; };
+		C9AB86BC2B7F06A200B24D6A /* WeatherPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86BB2B7F06A200B24D6A /* WeatherPresenterOutput.swift */; };
+		C9BAAEF22B849D10001EB3AD /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAAEF12B849D10001EB3AD /* WeatherView.swift */; };
+		C9BAAEF62B849E9E001EB3AD /* WeatherViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAAEF52B849E9E001EB3AD /* WeatherViewEventHandler.swift */; };
+		C9BAAEF82B84A69A001EB3AD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAAEF72B84A69A001EB3AD /* UIColor.swift */; };
 		C9C956BB2B7CB07900A1BC63 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C956BA2B7CB07900A1BC63 /* WeatherInfo.swift */; };
 		C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D1AC952B7DF657001987A2 /* PreviewViewController.swift */; };
 		C9D1AC992B7E005E001987A2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D1AC982B7E005E001987A2 /* UIImage.swift */; };
-		C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */; };
+		C9F473B02B7C834000FFD217 /* WeatherPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F473AF2B7C834000FFD217 /* WeatherPresenterInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +57,8 @@
 
 /* Begin PBXFileReference section */
 		C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherInfoRepository.swift; sourceTree = "<group>"; };
-		C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherView.swift; sourceTree = "<group>"; };
-		C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerTests.swift; sourceTree = "<group>"; };
+		C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyWeatherViewController.swift; sourceTree = "<group>"; };
+		C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterTests.swift; sourceTree = "<group>"; };
 		C901948F2B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIEncoder.swift; sourceTree = "<group>"; };
 		C90194912B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIDecoder.swift; sourceTree = "<group>"; };
 		C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YumemiWeatherAPIEncoderTests.swift; sourceTree = "<group>"; };
@@ -71,17 +74,20 @@
 		C96970752B7AFDE000AC4675 /* ios-trainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-trainingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96970792B7AFDE000AC4675 /* ios_trainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trainingUITests.swift; sourceTree = "<group>"; };
 		C969707B2B7AFDE000AC4675 /* ios_trainingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_trainingUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C969708E2B7B284800AC4675 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		C969708E2B7B284800AC4675 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		C96970902B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepositoryProtocol.swift; sourceTree = "<group>"; };
 		C96970942B7B353F00AC4675 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
 		C9AB86B42B7E08C500B24D6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoRepository.swift; sourceTree = "<group>"; };
-		C9AB86BB2B7F06A200B24D6A /* WeatherViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProtocol.swift; sourceTree = "<group>"; };
+		C9AB86BB2B7F06A200B24D6A /* WeatherPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterOutput.swift; sourceTree = "<group>"; };
+		C9BAAEF12B849D10001EB3AD /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		C9BAAEF52B849E9E001EB3AD /* WeatherViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewEventHandler.swift; sourceTree = "<group>"; };
+		C9BAAEF72B84A69A001EB3AD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C9C956BA2B7CB07900A1BC63 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		C9D1AC952B7DF657001987A2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C9D1AC982B7E005E001987A2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewEventHandler.swift; sourceTree = "<group>"; };
+		C9F473AF2B7C834000FFD217 /* WeatherPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				C90194862B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift */,
-				C90194882B7F2E7B003F9F0F /* SpyWeatherView.swift */,
+				C90194882B7F2E7B003F9F0F /* SpyWeatherViewController.swift */,
 			);
 			path = TestDouble;
 			sourceTree = "<group>";
@@ -161,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				C90194852B7F28D2003F9F0F /* TestDouble */,
-				C901948A2B7F3139003F9F0F /* WeatherViewControllerTests.swift */,
+				C901948A2B7F3139003F9F0F /* WeatherPresenterTests.swift */,
 				C90194932B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift */,
 				C90194952B7F5809003F9F0F /* YumemiWeatherAPIDecoderTests.swift */,
 			);
@@ -201,9 +207,11 @@
 			isa = PBXGroup;
 			children = (
 				C969705C2B7AFDDF00AC4675 /* WeatherViewController.swift */,
-				C9AB86BB2B7F06A200B24D6A /* WeatherViewProtocol.swift */,
-				C969708E2B7B284800AC4675 /* WeatherView.swift */,
-				C9F473AF2B7C834000FFD217 /* WeatherViewEventHandler.swift */,
+				C9BAAEF12B849D10001EB3AD /* WeatherView.swift */,
+				C9BAAEF52B849E9E001EB3AD /* WeatherViewEventHandler.swift */,
+				C9F473AF2B7C834000FFD217 /* WeatherPresenterInput.swift */,
+				C969708E2B7B284800AC4675 /* WeatherPresenter.swift */,
+				C9AB86BB2B7F06A200B24D6A /* WeatherPresenterOutput.swift */,
 			);
 			path = WeatherView;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D1AC982B7E005E001987A2 /* UIImage.swift */,
+				C9BAAEF72B84A69A001EB3AD /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -371,14 +380,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9AB86BC2B7F06A200B24D6A /* WeatherViewProtocol.swift in Sources */,
+				C9AB86BC2B7F06A200B24D6A /* WeatherPresenterOutput.swift in Sources */,
 				C969705D2B7AFDDF00AC4675 /* WeatherViewController.swift in Sources */,
 				C9D1AC992B7E005E001987A2 /* UIImage.swift in Sources */,
-				C969708F2B7B284800AC4675 /* WeatherView.swift in Sources */,
+				C9BAAEF62B849E9E001EB3AD /* WeatherViewEventHandler.swift in Sources */,
+				C969708F2B7B284800AC4675 /* WeatherPresenter.swift in Sources */,
 				C96970912B7B348500AC4675 /* WeatherInfoRepositoryProtocol.swift in Sources */,
+				C9BAAEF22B849D10001EB3AD /* WeatherView.swift in Sources */,
 				C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */,
+				C9BAAEF82B84A69A001EB3AD /* UIColor.swift in Sources */,
 				C9D1AC962B7DF657001987A2 /* PreviewViewController.swift in Sources */,
-				C9F473B02B7C834000FFD217 /* WeatherViewEventHandler.swift in Sources */,
+				C9F473B02B7C834000FFD217 /* WeatherPresenterInput.swift in Sources */,
 				C90194922B7F3FCD003F9F0F /* YumemiWeatherAPIDecoder.swift in Sources */,
 				C90194902B7F3E28003F9F0F /* YumemiWeatherAPIEncoder.swift in Sources */,
 				C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */,
@@ -396,9 +408,9 @@
 			files = (
 				C90194942B7F522F003F9F0F /* YumemiWeatherAPIEncoderTests.swift in Sources */,
 				C90194962B7F5809003F9F0F /* YumemiWeatherAPIDecoderTests.swift in Sources */,
-				C901948B2B7F3139003F9F0F /* WeatherViewControllerTests.swift in Sources */,
+				C901948B2B7F3139003F9F0F /* WeatherPresenterTests.swift in Sources */,
 				C90194872B7F28F2003F9F0F /* SpyWeatherInfoRepository.swift in Sources */,
-				C90194892B7F2E7B003F9F0F /* SpyWeatherView.swift in Sources */,
+				C90194892B7F2E7B003F9F0F /* SpyWeatherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
