@@ -18,8 +18,8 @@ protocol AreaListPresenterInput {
     /// 特定の地域の天気に関する情報を取得する
     func weatherInfoAt(_ area: Area) -> WeatherInfo?
     
-    /// viewDidAppearで行う処理
-    func viewDidAppear()
+    /// viewIsAppearingで行う処理
+    func viewIsAppearing()
     
     /// アラートのRetryボタンが押された時の処理
     func didTapRetry()

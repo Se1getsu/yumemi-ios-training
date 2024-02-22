@@ -29,11 +29,10 @@ final class AreaListViewController: UIViewController {
         myView.eventHandler = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presenter.viewDidAppear()
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        presenter.viewIsAppearing()
     }
-    
 }
 
 // MARK: - AreaListViewEventHandler

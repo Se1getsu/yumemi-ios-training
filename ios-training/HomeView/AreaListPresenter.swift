@@ -42,7 +42,7 @@ extension AreaListPresenter: AreaListPresenterInput {
         weatherInfos[area]
     }
     
-    func viewDidAppear() {
+    func viewIsAppearing() {
         if let selectedIndex {
             view.deselectRow(at: selectedIndex)
         }
