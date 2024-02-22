@@ -66,7 +66,6 @@ extension AreaListView: UITableViewDataSource {
 
 extension AreaListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         eventHandler?.didSelectRowAt(indexPath.row)
     }
 }

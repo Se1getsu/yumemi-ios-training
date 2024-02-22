@@ -13,6 +13,7 @@ final class AreaListPresenter {
     
     let areas: [Area] = Area.allCases
     var weatherInfos: [Area: WeatherInfo] = [:]
+    var selectedIndex: Int?
     
     // MARK: Properties - Dependencies
     
@@ -31,6 +32,7 @@ final class AreaListPresenter {
 
 extension AreaListPresenter: AreaListPresenterInput {
     func didSelectRowAt(_ index: Int) {
+        selectedIndex = index
         let area = areas[index]
         let weatherInfo = weatherInfos[area]
         view.transitToWeatherView(area: area, weatherInfo: weatherInfo)
@@ -41,6 +43,9 @@ extension AreaListPresenter: AreaListPresenterInput {
     }
     
     func viewDidAppear() {
+        if let selectedIndex {
+            view.deselectRow(at: selectedIndex)
+        }
         view.startLoading()
         Task {
             await loadWeatherInfo()

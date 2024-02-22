@@ -30,8 +30,10 @@ final class AreaListViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter.viewDidAppear()
     }
+    
 }
 
 // MARK: - AreaListViewEventHandler
@@ -99,6 +101,10 @@ extension AreaListViewController: AreaListPresetnerOutput {
             didTapCancel: nil
         )
         present(alert, animated: true)
+    }
+    
+    func deselectRow(at index: Int) {
+        myView.tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
     }
 }
 

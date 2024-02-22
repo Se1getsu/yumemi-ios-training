@@ -26,4 +26,7 @@ protocol AreaListPresetnerOutput: AnyObject {
     
     /// 天気の取得に失敗した旨のアラートを表示する
     func showFetchErrorAlert()
+    
+    /// セルの選択を解除する
+    func deselectRow(at index: Int)
 }
