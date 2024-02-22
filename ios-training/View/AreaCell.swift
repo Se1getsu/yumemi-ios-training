@@ -10,15 +10,15 @@ import UIKit
 final class AreaCell: UITableViewCell {
     // MARK: Properties - UI
     
-    let weatherImageView: UIImageView = {
+    private let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let areaLabel: UILabel = UILabel()
+    private let areaLabel: UILabel = UILabel()
     
-    let highTemperatureLabel: UILabel = {
+    private let highTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemRed
         label.font = .preferredFont(forTextStyle: .subheadline)
@@ -27,7 +27,7 @@ final class AreaCell: UITableViewCell {
         return label
     }()
     
-    let minimumTemperatureLabel: UILabel = {
+    private let minimumTemperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
         label.font = .preferredFont(forTextStyle: .subheadline)
@@ -50,11 +50,25 @@ final class AreaCell: UITableViewCell {
     
     // MARK: Internal
     
-    func loadWeatherInfo(_ weatherInfo: WeatherInfo) {
-        weatherImageView.image = .weatherImage(for: weatherInfo.weather)
-        weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
-        highTemperatureLabel.text = weatherInfo.highTemperature.description
-        minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+    var area: Area? {
+        didSet {
+            areaLabel.text = area?.description
+        }
+    }
+    
+    var weatherInfo: WeatherInfo? {
+        didSet {
+            if let weatherInfo {
+                weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+                weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
+                highTemperatureLabel.text = weatherInfo.highTemperature.description
+                minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+            } else {
+                weatherImageView.image = nil
+                highTemperatureLabel.text = "--"
+                minimumTemperatureLabel.text = "--"
+            }
+        }
     }
 }
 
