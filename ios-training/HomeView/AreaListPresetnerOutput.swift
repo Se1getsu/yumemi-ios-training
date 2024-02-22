@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 protocol AreaListPresetnerOutput: AnyObject {
     /// WeatherViewに遷移する
-    func transitToWeatherView(weatherInfo: WeatherInfo)
+    func transitToWeatherView(area: Area, weatherInfo: WeatherInfo)
     
     /// ローディング表示を開始する
     func startLoading()

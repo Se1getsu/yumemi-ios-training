@@ -106,6 +106,7 @@ extension WeatherViewController: WeatherPresenterOutput {
             apiEncoder: YumemiWeatherAPIEncoder(),
             apiDecoder: YumemiWeatherAPIDecoder()
         ),
+        area: .Tokyo,
         weatherInfo: WeatherInfo(
             weather: .sunny,
             highTemperature: 25,
