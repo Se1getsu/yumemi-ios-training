@@ -8,6 +8,29 @@
 import UIKit
 
 final class AreaCell: UITableViewCell {
+    // MARK: Properties
+    
+    private var area: Area? {
+        didSet {
+            areaLabel.text = area?.description
+        }
+    }
+    
+    private var weatherInfo: WeatherInfo? {
+        didSet {
+            if let weatherInfo {
+                weatherImageView.image = .weatherImage(for: weatherInfo.weather)
+                weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
+                highTemperatureLabel.text = weatherInfo.highTemperature.description
+                minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
+            } else {
+                weatherImageView.image = nil
+                highTemperatureLabel.text = "--"
+                minimumTemperatureLabel.text = "--"
+            }
+        }
+    }
+    
     // MARK: Properties - UI
     
     private let weatherImageView: UIImageView = {
@@ -50,25 +73,9 @@ final class AreaCell: UITableViewCell {
     
     // MARK: Internal
     
-    var area: Area? {
-        didSet {
-            areaLabel.text = area?.description
-        }
-    }
-    
-    var weatherInfo: WeatherInfo? {
-        didSet {
-            if let weatherInfo {
-                weatherImageView.image = .weatherImage(for: weatherInfo.weather)
-                weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
-                highTemperatureLabel.text = weatherInfo.highTemperature.description
-                minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
-            } else {
-                weatherImageView.image = nil
-                highTemperatureLabel.text = "--"
-                minimumTemperatureLabel.text = "--"
-            }
-        }
+    func setInfo(area: Area?, weatherInfo: (Area) -> WeatherInfo?) {
+        self.area = area
+        self.weatherInfo = area.flatMap { weatherInfo($0) }
     }
 }
 

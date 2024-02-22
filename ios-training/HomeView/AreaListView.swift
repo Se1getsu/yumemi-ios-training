@@ -52,11 +52,12 @@ extension AreaListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AreaCell // swiftlint:disable:this force_cast
-        let area = eventHandler?.areas[indexPath.row]
-        cell.area = area
-        if let area, let weatherInfo = eventHandler?.weatherInfoAt(area) {
-            cell.weatherInfo = weatherInfo
-        }
+        cell.setInfo(
+            area: eventHandler?.areas[indexPath.row],
+            weatherInfo: { area in
+                eventHandler?.weatherInfoAt(area)
+            }
+        )
         return cell
     }
 }
