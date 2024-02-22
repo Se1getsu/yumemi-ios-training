@@ -57,14 +57,15 @@ extension AreaListViewController: AreaListViewEventHandler {
 // MARK: - AreaListPresetnerOutput
 
 extension AreaListViewController: AreaListPresetnerOutput {
-    func transitToWeatherView() {
+    func transitToWeatherView(weatherInfo: WeatherInfo) {
         let vc = WeatherViewController()
         let presenter = WeatherPresenter(
             view: vc,
             weatherInfoRepository: WeatherInfoRepository(
                 apiEncoder: YumemiWeatherAPIEncoder(),
                 apiDecoder: YumemiWeatherAPIDecoder()
-            )
+            ),
+            weatherInfo: weatherInfo
         )
         vc.inject(presenter: presenter)
         vc.modalPresentationStyle = .fullScreen

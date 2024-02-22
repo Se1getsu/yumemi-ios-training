@@ -16,9 +16,14 @@ final class WeatherPresenter {
     
     // MARK: Lifecycle
     
-    init(view: WeatherPresenterOutput, weatherInfoRepository: WeatherInfoRepositoryProtocol) {
+    init(
+        view: WeatherPresenterOutput,
+        weatherInfoRepository: WeatherInfoRepositoryProtocol,
+        weatherInfo: WeatherInfo
+    ) {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
+        self.view.showWeatherInfo(weatherInfo: weatherInfo)
     }
 }
 
