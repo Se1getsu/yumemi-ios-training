@@ -16,4 +16,7 @@ protocol AreaListViewEventHandler: AnyObject {
     
     /// セルがタップされた時の処理
     func didSelectRowAt(_ index: Int)
+    
+    /// Pull-to-Refreshの処理
+    func onRefresh()
 }

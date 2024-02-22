@@ -18,6 +18,9 @@ protocol AreaListPresetnerOutput: AnyObject {
     /// ローディング表示を終了する
     func finishLoading()
     
+    /// Pull-to-Refreshの表示を終了する
+    func finishRefreshing()
+    
     /// 表示されている内容を更新する
     func reloadData()
     

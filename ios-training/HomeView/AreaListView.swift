@@ -23,13 +23,17 @@ final class AreaListView: UIView {
     
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
+    let refreshControl = UIRefreshControl()
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
+        tableView.refreshControl = refreshControl
         addSubviewUIs()
         setUpLayout()
+        registerEvent()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -95,6 +99,15 @@ private extension AreaListView {
             activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
+    }
+    
+    /// 画面のイベント処理を登録する
+    func registerEvent() {
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+    }
+    
+    @objc private func onRefresh() {
+        eventHandler?.onRefresh()
     }
 }
 

@@ -48,6 +48,10 @@ extension AreaListViewController: AreaListViewEventHandler {
     func didSelectRowAt(_ index: Int) {
         presenter.didSelectRowAt(index)
     }
+    
+    func onRefresh() {
+        presenter.onRefresh()
+    }
 }
 
 // MARK: - AreaListPresetnerOutput
@@ -73,6 +77,10 @@ extension AreaListViewController: AreaListPresetnerOutput {
     
     func finishLoading() {
         myView.activityIndicator.stopAnimating()
+    }
+    
+    func finishRefreshing() {
+        myView.refreshControl.endRefreshing()
     }
     
     func reloadData() {

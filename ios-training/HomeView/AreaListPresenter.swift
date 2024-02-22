@@ -39,29 +39,38 @@ extension AreaListPresenter: AreaListPresenterInput {
     }
     
     func viewDidAppear() {
-        loadWeatherInfo()
+        view.startLoading()
+        Task {
+            await loadWeatherInfo()
+            view.finishLoading()
+        }
     }
     
     func didTapRetry() {
-        loadWeatherInfo()
+        view.startLoading()
+        Task {
+            await loadWeatherInfo()
+            view.finishLoading()
+        }
+    }
+    
+    func onRefresh() {
+        Task {
+            await loadWeatherInfo()
+            view.finishRefreshing()
+        }
     }
 }
 
 // MARK: - Private
 
 private extension AreaListPresenter {
-    func loadWeatherInfo() {
-        view.startLoading()
-        Task {
-            defer {
-                view.finishLoading()
-            }
-            do {
-                weatherInfos = try await self.weatherInfoRepository.fetch(at: areas, date: Date())
-                view.reloadData()
-            } catch {
-                view.showFetchErrorAlert()
-            }
+    func loadWeatherInfo() async {
+        do {
+            weatherInfos = try await self.weatherInfoRepository.fetch(at: areas, date: Date())
+            view.reloadData()
+        } catch {
+            view.showFetchErrorAlert()
         }
     }
 }

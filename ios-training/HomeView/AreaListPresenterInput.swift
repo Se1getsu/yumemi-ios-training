@@ -23,4 +23,7 @@ protocol AreaListPresenterInput {
     
     /// アラートのRetryボタンが押された時の処理
     func didTapRetry()
+    
+    /// Pull-to-Refreshの処理
+    func onRefresh()
 }
