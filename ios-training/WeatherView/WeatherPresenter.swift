@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class WeatherPresenter: WeatherPresenterInput {
+@MainActor
+final class WeatherPresenter {
     // MARK: Properties - Dependencies
     
     private weak var view: WeatherPresenterOutput!
@@ -19,7 +20,11 @@ final class WeatherPresenter: WeatherPresenterInput {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
     }
-    
+}
+
+// MARK: - WeatherPresenterInput
+
+extension WeatherPresenter: WeatherPresenterInput {
     func willEnterForeground() {
         loadWeather()
     }
@@ -43,23 +48,15 @@ private extension WeatherPresenter {
     /// 天気を読み込む
     func loadWeather() {
         view.startLoading()
-        DispatchQueue.global().async {
+        Task {
             defer {
-                DispatchQueue.main.async {
-                    self.view.finishLoading()
-                }
+                view.finishLoading()
             }
             do {
-                let weatherInfo = try self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
-                // 読み込み成功
-                DispatchQueue.main.async {
-                    self.view.showWeatherInfo(weatherInfo: weatherInfo)
-                }
+                let weatherInfo = try await self.weatherInfoRepository.fetch(at: "tokyo", date: Date())
+                view.showWeatherInfo(weatherInfo: weatherInfo)
             } catch {
-                // 読み込み失敗
-                DispatchQueue.main.async {
-                    self.view.showFetchErrorAlert()
-                }
+                view.showFetchErrorAlert()
             }
         }
     }
