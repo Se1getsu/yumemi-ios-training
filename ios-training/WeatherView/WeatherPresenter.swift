@@ -20,6 +20,9 @@ final class WeatherPresenter {
     
     // MARK: Lifecycle
     
+    /// - Parameters:
+    ///   - area: 表示する地域
+    ///   - weatherInfo: 初期状態で表示する天気の情報
     init(
         view: WeatherPresenterOutput,
         weatherInfoRepository: WeatherInfoRepositoryProtocol,
