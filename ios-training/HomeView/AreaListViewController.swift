@@ -57,7 +57,7 @@ extension AreaListViewController: AreaListViewEventHandler {
 // MARK: - AreaListPresetnerOutput
 
 extension AreaListViewController: AreaListPresetnerOutput {
-    func transitToWeatherView(area: Area, weatherInfo: WeatherInfo) {
+    func transitToWeatherView(area: Area, weatherInfo: WeatherInfo?) {
         let vc = WeatherViewController()
         let presenter = WeatherPresenter(
             view: vc,

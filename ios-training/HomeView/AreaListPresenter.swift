@@ -32,7 +32,7 @@ final class AreaListPresenter {
 extension AreaListPresenter: AreaListPresenterInput {
     func didSelectRowAt(_ index: Int) {
         let area = areas[index]
-        guard let weatherInfo = weatherInfos[area] else { return }
+        let weatherInfo = weatherInfos[area]
         view.transitToWeatherView(area: area, weatherInfo: weatherInfo)
     }
     
