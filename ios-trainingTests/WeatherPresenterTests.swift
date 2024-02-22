@@ -34,13 +34,13 @@ final class WeatherPresenterTests: XCTestCase {
     func test_曇りの画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
         
         // 更新ボタンを押して天気を読み込む
-        weatherInfoRepository.willFetch = [.Tokyo: .make(weather: .cloudy)]
+        weatherInfoRepository.willFetch = [.tokyo: .make(weather: .cloudy)]
         presenter.didTapReloadButton()
         wait(for: [expectation], timeout: apiTimeout)
         XCTAssertEqual(vc.receivedWeatherInfo?.weather, .cloudy)
@@ -49,13 +49,13 @@ final class WeatherPresenterTests: XCTestCase {
     func test_雨の画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
         
         // 更新ボタンを押して天気を読み込む
-        weatherInfoRepository.willFetch = [.Tokyo: .make(weather: .rainy)]
+        weatherInfoRepository.willFetch = [.tokyo: .make(weather: .rainy)]
         presenter.didTapReloadButton()
         wait(for: [expectation], timeout: apiTimeout)
         XCTAssertEqual(vc.receivedWeatherInfo?.weather, .rainy)
@@ -64,13 +64,13 @@ final class WeatherPresenterTests: XCTestCase {
     func test_晴れの画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
         
         // 更新ボタンを押して天気を読み込む
-        weatherInfoRepository.willFetch = [.Tokyo: .make(weather: .sunny)]
+        weatherInfoRepository.willFetch = [.tokyo: .make(weather: .sunny)]
         presenter.didTapReloadButton()
         wait(for: [expectation], timeout: apiTimeout)
         XCTAssertEqual(vc.receivedWeatherInfo?.weather, .sunny)
@@ -79,13 +79,13 @@ final class WeatherPresenterTests: XCTestCase {
     func test_取得した最高気温と最低気温を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
         
         // 更新ボタンを押して気温を読み込む
-        weatherInfoRepository.willFetch = [.Tokyo: .make(highTemperature: 20, minimumTemperature: 10)]
+        weatherInfoRepository.willFetch = [.tokyo: .make(highTemperature: 20, minimumTemperature: 10)]
         presenter.didTapReloadButton()
         wait(for: [expectation], timeout: apiTimeout)
         XCTAssertEqual(vc.receivedWeatherInfo?.highTemperature, 20)

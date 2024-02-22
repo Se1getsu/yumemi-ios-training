@@ -9,44 +9,44 @@ import Foundation
 
 /// 地域を表すエンティティ
 public enum Area: String, CaseIterable, Codable {
-    case Sapporo
-    case Sendai
-    case Niigata
-    case Kanazawa
-    case Tokyo
-    case Nagoya
-    case Osaka
-    case Hiroshima
-    case Kochi
-    case Fukuoka
-    case Kagoshima
-    case Naha
+    case sapporo = "Sapporo"
+    case sendai = "Sendai"
+    case niigata = "Niigata"
+    case kanazawa = "Kanazawa"
+    case tokyo = "Tokyo"
+    case nagoya = "Nagoya"
+    case osaka = "Osaka"
+    case hiroshima = "Hiroshima"
+    case kochi = "Kochi"
+    case fukuoka = "Fukuoka"
+    case kagoshima = "Kagoshima"
+    case naha = "Naha"
     
     var description: String {
         switch self {
-        case .Sapporo:
+        case .sapporo:
             "札幌"
-        case .Sendai:
+        case .sendai:
             "仙台"
-        case .Niigata:
+        case .niigata:
             "新潟"
-        case .Kanazawa:
+        case .kanazawa:
             "金沢"
-        case .Tokyo:
+        case .tokyo:
             "東京"
-        case .Nagoya:
+        case .nagoya:
             "名古屋"
-        case .Osaka:
+        case .osaka:
             "大阪"
-        case .Hiroshima:
+        case .hiroshima:
             "広島"
-        case .Kochi:
+        case .kochi:
             "高知"
-        case .Fukuoka:
+        case .fukuoka:
             "福岡"
-        case .Kagoshima:
+        case .kagoshima:
             "鹿児島"
-        case .Naha:
+        case .naha:
             "那覇"
         }
     }
