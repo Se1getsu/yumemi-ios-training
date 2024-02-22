@@ -34,7 +34,7 @@ final class WeatherPresenterTests: XCTestCase {
     func test_曇りの画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
@@ -49,7 +49,7 @@ final class WeatherPresenterTests: XCTestCase {
     func test_雨の画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
@@ -64,7 +64,7 @@ final class WeatherPresenterTests: XCTestCase {
     func test_晴れの画像を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
@@ -79,7 +79,7 @@ final class WeatherPresenterTests: XCTestCase {
     func test_取得した最高気温と最低気温を表示する() throws {
         let vc = SpyWeatherViewController()
         let weatherInfoRepository = SpyWeatherInfoRepository()
-        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, weatherInfo: nil)
+        let presenter: WeatherPresenterInput = WeatherPresenter(view: vc, weatherInfoRepository: weatherInfoRepository, area: .Tokyo, weatherInfo: nil)
         
         let expectation = expectation(description: "読み込みが終わるまで待機")
         vc.showWeatherInfoExpectation = expectation
