@@ -13,6 +13,7 @@ final class WeatherPresenter {
     
     private weak var view: WeatherPresenterOutput!
     private var weatherInfoRepository: WeatherInfoRepositoryProtocol
+    private var isAlertShowing: Bool = false
     
     // MARK: Lifecycle
     
@@ -26,6 +27,7 @@ final class WeatherPresenter {
 
 extension WeatherPresenter: WeatherPresenterInput {
     func willEnterForeground() {
+        guard !isAlertShowing else { return }
         loadWeather()
     }
     
@@ -38,7 +40,12 @@ extension WeatherPresenter: WeatherPresenterInput {
     }
     
     func didTapRetry() {
+        isAlertShowing = false
         loadWeather()
+    }
+    
+    func didTapCancel() {
+        isAlertShowing = false
     }
 }
 
@@ -57,6 +64,7 @@ private extension WeatherPresenter {
                 view.showWeatherInfo(weatherInfo: weatherInfo)
             } catch {
                 view.showFetchErrorAlert()
+                isAlertShowing = true
             }
         }
     }
