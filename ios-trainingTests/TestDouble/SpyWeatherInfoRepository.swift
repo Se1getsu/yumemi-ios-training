@@ -11,19 +11,19 @@ import Foundation
 final class SpyWeatherInfoRepository {
     // MARK: Properties - Input
     
-    var areaInput: String? = nil
+    var areasInput: [Area]? = nil
     var dateInput: Date? = nil
     
     // MARK: Properties - Output
     
-    var willFetch: WeatherInfo!
+    var willFetch: [Area: WeatherInfo]!
 }
 
 // MARK: - WeatherInfoRepository
 
 extension SpyWeatherInfoRepository: WeatherInfoRepositoryProtocol {
-    func fetch(at area: String, date: Date) throws -> WeatherInfo {
-        areaInput = area
+    func fetch(at areas: [Area], date: Date) async throws -> [Area : WeatherInfo] {
+        areasInput = areas
         dateInput = date
         return willFetch
     }

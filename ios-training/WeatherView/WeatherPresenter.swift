@@ -19,11 +19,13 @@ final class WeatherPresenter {
     init(
         view: WeatherPresenterOutput,
         weatherInfoRepository: WeatherInfoRepositoryProtocol,
-        weatherInfo: WeatherInfo
+        weatherInfo: WeatherInfo?
     ) {
         self.view = view
         self.weatherInfoRepository = weatherInfoRepository
-        self.view.showWeatherInfo(weatherInfo: weatherInfo)
+        if let weatherInfo {
+            self.view.showWeatherInfo(weatherInfo: weatherInfo)
+        }
     }
 }
 
