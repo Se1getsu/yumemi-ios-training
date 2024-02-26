@@ -71,6 +71,7 @@ extension WeatherViewController: WeatherPresenterOutput {
     }
     
     func showWeatherInfo(weatherInfo: WeatherInfo) {
+        myView.weatherImagePlaceholderLabel.isHidden = true
         myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
         myView.weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
         myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
@@ -104,6 +105,12 @@ extension WeatherViewController: WeatherPresenterOutput {
         weatherInfoRepository: WeatherInfoRepository(
             apiEncoder: YumemiWeatherAPIEncoder(),
             apiDecoder: YumemiWeatherAPIDecoder()
+        ),
+        area: .tokyo,
+        weatherInfo: WeatherInfo(
+            weather: .sunny,
+            highTemperature: 25,
+            minimumTemperature: 15
         )
     )
     vc.inject(presenter: presenter)

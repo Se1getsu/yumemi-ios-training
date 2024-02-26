@@ -14,7 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = HomeViewController()
+        let vc = AreaListViewController()
+        let presenter = AreaListPresenter(
+            view: vc,
+            weatherInfoRepository: WeatherInfoRepository(
+                apiEncoder: YumemiWeatherAPIEncoder(),
+                apiDecoder: YumemiWeatherAPIDecoder()
+            )
+        )
+        vc.inject(presenter: presenter)
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
 
