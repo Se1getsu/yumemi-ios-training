@@ -25,6 +25,7 @@ final class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = presenter.title
         view = myView
         myView.eventHandler = self
         
@@ -114,5 +115,5 @@ extension WeatherViewController: WeatherPresenterOutput {
         )
     )
     vc.inject(presenter: presenter)
-    return vc
+    return UINavigationController(rootViewController: vc)
 }
