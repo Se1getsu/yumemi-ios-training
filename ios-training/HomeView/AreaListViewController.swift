@@ -71,8 +71,7 @@ extension AreaListViewController: AreaListPresetnerOutput {
             weatherInfo: weatherInfo
         )
         vc.inject(presenter: presenter)
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func startLoading() {
