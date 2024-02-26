@@ -50,7 +50,7 @@ extension WeatherPresenter: WeatherPresenterInput {
     }
     
     func didTapCloseButton() {
-        view.dismiss()
+        view.closeView()
     }
     
     func didTapReloadButton() {
