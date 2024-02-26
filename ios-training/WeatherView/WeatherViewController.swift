@@ -25,6 +25,7 @@ final class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = presenter.title
         view = myView
         myView.eventHandler = self
         
@@ -53,8 +54,8 @@ extension WeatherViewController: WeatherViewEventHandler {
 // MARK: - WeatherViewPresenterInput
 
 extension WeatherViewController: WeatherPresenterOutput {
-    func dismiss() {
-        dismiss(animated: true)
+    func closeView() {
+        navigationController?.popViewController(animated: true)
     }
     
     func startLoading() {
@@ -114,5 +115,5 @@ extension WeatherViewController: WeatherPresenterOutput {
         )
     )
     vc.inject(presenter: presenter)
-    return vc
+    return UINavigationController(rootViewController: vc)
 }

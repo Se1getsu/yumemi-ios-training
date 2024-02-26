@@ -9,8 +9,8 @@ import UIKit
 
 @MainActor
 protocol WeatherPresenterOutput: AnyObject {
-    /// dismissする
-    func dismiss()
+    /// 画面を閉じる
+    func closeView()
     
     /// ローディング表示を開始する
     func startLoading()

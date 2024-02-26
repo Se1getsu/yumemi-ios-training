@@ -41,12 +41,16 @@ final class WeatherPresenter {
 // MARK: - WeatherPresenterInput
 
 extension WeatherPresenter: WeatherPresenterInput {
+    var title: String {
+        area.description
+    }
+    
     func willEnterForeground() {
         loadWeather()
     }
     
     func didTapCloseButton() {
-        view.dismiss()
+        view.closeView()
     }
     
     func didTapReloadButton() {
