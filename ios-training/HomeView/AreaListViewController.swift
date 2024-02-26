@@ -25,6 +25,7 @@ final class AreaListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "地域を選択"
         view = myView
         myView.eventHandler = self
     }
@@ -120,5 +121,5 @@ extension AreaListViewController: AreaListPresetnerOutput {
         )
     )
     vc.inject(presenter: presenter)
-    return vc
+    return UINavigationController(rootViewController: vc)
 }
