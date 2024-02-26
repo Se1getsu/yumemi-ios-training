@@ -102,8 +102,9 @@ extension AreaListViewController: AreaListPresetnerOutput {
         present(alert, animated: true)
     }
     
-    func deselectRow(at index: Int) {
-        myView.tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
+    func deselectRow() {
+        guard let index = myView.tableView.indexPathForSelectedRow else { return }
+        myView.tableView.deselectRow(at: index, animated: true)
     }
 }
 

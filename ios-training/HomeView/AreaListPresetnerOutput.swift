@@ -28,5 +28,5 @@ protocol AreaListPresetnerOutput: AnyObject {
     func showFetchErrorAlert()
     
     /// セルの選択を解除する
-    func deselectRow(at index: Int)
+    func deselectRow()
 }
