@@ -100,66 +100,42 @@ private extension WeatherView {
     }
     
     /// オートレイアウトの設定処理
-    func setUpLayout() { // swiftlint:disable:this function_body_length
+    func setUpLayout() {
         let safeArea = safeAreaLayoutGuide
         
-        weatherFrame.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            weatherFrame.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            weatherFrame.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-            weatherFrame.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5)
-        ])
-        
-        weatherImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            weatherImageView.topAnchor.constraint(equalTo: weatherFrame.topAnchor),
-            weatherImageView.centerXAnchor.constraint(equalTo: weatherFrame.centerXAnchor),
-            weatherImageView.widthAnchor.constraint(equalTo: weatherFrame.widthAnchor),
-            weatherImageView.heightAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 1.0)
-        ])
-        
-        weatherImagePlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            weatherImagePlaceholderLabel.topAnchor.constraint(equalTo: weatherImageView.topAnchor),
-            weatherImagePlaceholderLabel.bottomAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
-            weatherImagePlaceholderLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
-            weatherImagePlaceholderLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor)
-        ])
-        
-        minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            minimumTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
-            minimumTemperatureLabel.bottomAnchor.constraint(equalTo: weatherFrame.bottomAnchor),
-            minimumTemperatureLabel.leadingAnchor.constraint(equalTo: weatherImageView.leadingAnchor),
-            minimumTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
-        ])
-        
-        highTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            highTemperatureLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor),
-            highTemperatureLabel.trailingAnchor.constraint(equalTo: weatherImageView.trailingAnchor),
-            highTemperatureLabel.widthAnchor.constraint(equalTo: weatherImageView.widthAnchor, multiplier: 0.5)
-        ])
-        
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: minimumTemperatureLabel.bottomAnchor, constant: 80),
-            closeButton.centerXAnchor.constraint(equalTo: minimumTemperatureLabel.centerXAnchor)
-        ])
-        
-        reloadButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            reloadButton.topAnchor.constraint(equalTo: highTemperatureLabel.bottomAnchor, constant: 80),
-            reloadButton.centerXAnchor.constraint(equalTo: highTemperatureLabel.centerXAnchor)
-        ])
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            activityIndicator.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            activityIndicator.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
-        ])
+        weatherFrame.snp.makeConstraints {
+            $0.center.equalTo(safeArea)
+            $0.width.equalTo(safeArea).multipliedBy(0.5)
+        }
+        weatherImageView.snp.makeConstraints {
+            $0.top.left.right.equalTo(weatherFrame)
+            $0.height.equalTo(weatherImageView.snp.width)
+        }
+        weatherImagePlaceholderLabel.snp.makeConstraints {
+            $0.edges.equalTo(weatherImageView)
+        }
+        minimumTemperatureLabel.snp.makeConstraints {
+            $0.top.equalTo(weatherImageView.snp.bottom)
+            $0.bottom.equalTo(weatherFrame)
+            $0.leading.equalTo(weatherImageView)
+            $0.width.equalTo(weatherImageView).multipliedBy(0.5)
+        }
+        highTemperatureLabel.snp.makeConstraints {
+            $0.top.equalTo(weatherImageView.snp.bottom)
+            $0.trailing.equalTo(weatherImageView)
+            $0.width.equalTo(weatherImageView).multipliedBy(0.5)
+        }
+        closeButton.snp.makeConstraints {
+            $0.top.equalTo(minimumTemperatureLabel.snp.bottom).offset(80)
+            $0.centerX.equalTo(minimumTemperatureLabel)
+        }
+        reloadButton.snp.makeConstraints {
+            $0.top.equalTo(highTemperatureLabel.snp.bottom).offset(80)
+            $0.centerX.equalTo(highTemperatureLabel)
+        }
+        activityIndicator.snp.makeConstraints {
+            $0.edges.equalTo(safeArea)
+        }
     }
     
     /// 画面のイベント処理を登録する

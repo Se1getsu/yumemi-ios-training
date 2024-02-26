@@ -90,36 +90,26 @@ private extension AreaCell {
     }
     
     func setUpLayout() {
-        weatherImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            weatherImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            weatherImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            weatherImageView.widthAnchor.constraint(equalToConstant: 32),
-            weatherImageView.heightAnchor.constraint(equalToConstant: 32)
-        ])
-        
-        areaLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            areaLabel.leadingAnchor.constraint(equalTo: weatherImageView.trailingAnchor, constant: 8),
-            areaLabel.trailingAnchor.constraint(equalTo: minimumTemperatureLabel.leadingAnchor),
-            areaLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            areaLabel.heightAnchor.constraint(equalToConstant: 44)
-        ])
-        
-        highTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            highTemperatureLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            highTemperatureLabel.widthAnchor.constraint(equalToConstant: 38),
-            highTemperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            highTemperatureLabel.heightAnchor.constraint(equalToConstant: 44)
-        ])
-        
-        minimumTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            minimumTemperatureLabel.trailingAnchor.constraint(equalTo: highTemperatureLabel.leadingAnchor),
-            minimumTemperatureLabel.widthAnchor.constraint(equalToConstant: 38),
-            minimumTemperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            minimumTemperatureLabel.heightAnchor.constraint(equalToConstant: 44)
-        ])
+        weatherImageView.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(8)
+            $0.centerY.equalTo(contentView)
+            $0.width.height.equalTo(32)
+        }
+        areaLabel.snp.makeConstraints {
+            $0.leading.equalTo(weatherImageView.snp.trailing).offset(8)
+            $0.trailing.equalTo(minimumTemperatureLabel.snp.leading)
+            $0.centerY.equalTo(contentView)
+            $0.height.equalTo(44)
+        }
+        highTemperatureLabel.snp.makeConstraints {
+            $0.trailing.equalTo(contentView).inset(8)
+            $0.centerY.equalTo(contentView)
+            $0.size.equalTo(CGSize(width: 38, height: 44))
+        }
+        minimumTemperatureLabel.snp.makeConstraints {
+            $0.trailing.equalTo(highTemperatureLabel.snp.leading)
+            $0.centerY.equalTo(contentView)
+            $0.size.equalTo(CGSize(width: 38, height: 44))
+        }
     }
 }
