@@ -25,6 +25,7 @@ final class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = presenter.title
         view = myView
         myView.eventHandler = self
         
@@ -57,8 +58,8 @@ extension WeatherViewController: WeatherPresenterOutput {
         presentedViewController as? UIAlertController != nil
     }
     
-    func dismiss() {
-        dismiss(animated: true)
+    func closeView() {
+        navigationController?.popViewController(animated: true)
     }
     
     func startLoading() {
@@ -75,6 +76,7 @@ extension WeatherViewController: WeatherPresenterOutput {
     }
     
     func showWeatherInfo(weatherInfo: WeatherInfo) {
+        myView.weatherImagePlaceholderLabel.isHidden = true
         myView.weatherImageView.image = .weatherImage(for: weatherInfo.weather)
         myView.weatherImageView.tintColor = .weatherTint(for: weatherInfo.weather)
         myView.minimumTemperatureLabel.text = weatherInfo.minimumTemperature.description
@@ -110,8 +112,14 @@ extension WeatherViewController: WeatherPresenterOutput {
         weatherInfoRepository: WeatherInfoRepository(
             apiEncoder: YumemiWeatherAPIEncoder(),
             apiDecoder: YumemiWeatherAPIDecoder()
+        ),
+        area: .tokyo,
+        weatherInfo: WeatherInfo(
+            weather: .sunny,
+            highTemperature: 25,
+            minimumTemperature: 15
         )
     )
     vc.inject(presenter: presenter)
-    return vc
+    return UINavigationController(rootViewController: vc)
 }

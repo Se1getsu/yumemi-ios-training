@@ -9,6 +9,9 @@ import Foundation
 
 @MainActor
 protocol WeatherPresenterInput {
+    /// ナビゲーションバーのタイトル
+    var title: String { get }
+    
     /// 画面がフォアグラウンドになる時の処理
     func willEnterForeground()
     

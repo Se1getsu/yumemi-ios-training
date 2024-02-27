@@ -22,12 +22,12 @@ final class YumemiWeatherAPIEncoderTests: XCTestCase {
     func test_クエリをエンコード() throws {
         let encoder = YumemiWeatherAPIEncoder()
         let jsonString = try encoder.encodeQuery(
-            at: "tokyo",
+            at: [.tokyo],
             date: formatter.date(from: "2024/02/16 12:00:00")!
         )
         XCTAssertTrue([
-            #"{"area":"tokyo","date":"2024-01-16T03:00:00Z"}"#,
-            #"{"date":"2024-01-16T03:00:00Z","area":"tokyo"}"#
+            #"{"areas":["Tokyo"],"date":"2024-01-16T03:00:00Z"}"#,
+            #"{"date":"2024-01-16T03:00:00Z","areas":["Tokyo"]}"#
         ].contains(jsonString))
     }
 }

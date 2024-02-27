@@ -11,10 +11,11 @@ import XCTest
 final class YumemiWeatherAPIDecoderTests: XCTestCase {
     func test_レスポンスをデコード() throws {
         let decoder = YumemiWeatherAPIDecoder()
-        let jsonString = #"{"max_temperature":25,"date":"2020-04-01T12:00:00+09:00","min_temperature":7,"weather_condition":"cloudy"}"#
-        let weatherInfo = try decoder.decodeResponse(jsonString)
-        XCTAssertEqual(weatherInfo.weather, .cloudy)
-        XCTAssertEqual(weatherInfo.highTemperature, 25)
-        XCTAssertEqual(weatherInfo.minimumTemperature, 7)
+        let jsonString = #"[{"area":"Tokyo","info":{"max_temperature":25,"date":"2020-04-01T12:00:00+09:00","min_temperature": 7,"weather_condition":"cloudy"}}]"#
+        let weatherInfos = try decoder.decodeResponse(jsonString)
+        XCTAssertEqual(weatherInfos.keys.count, 1)
+        XCTAssertNotNil(weatherInfos[.tokyo])
+        XCTAssertEqual(weatherInfos[.tokyo]!.highTemperature, 25)
+        XCTAssertEqual(weatherInfos[.tokyo]!.minimumTemperature, 7)
     }
 }

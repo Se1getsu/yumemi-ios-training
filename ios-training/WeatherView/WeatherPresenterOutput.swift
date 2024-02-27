@@ -12,8 +12,8 @@ protocol WeatherPresenterOutput: AnyObject {
     /// アラートを表示中かどうか
     var isAlertShowing: Bool { get }
     
-    /// dismissする
-    func dismiss()
+    /// 画面を閉じる
+    func closeView()
     
     /// ローディング表示を開始する
     func startLoading()
