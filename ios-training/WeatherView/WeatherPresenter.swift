@@ -46,6 +46,7 @@ extension WeatherPresenter: WeatherPresenterInput {
     }
     
     func willEnterForeground() {
+        guard !view.isAlertShowing else { return }
         loadWeather()
     }
     
