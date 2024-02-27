@@ -9,6 +9,9 @@ import UIKit
 
 @MainActor
 protocol WeatherPresenterOutput: AnyObject {
+    /// アラートを表示中かどうか
+    var isAlertShowing: Bool { get }
+    
     /// dismissする
     func dismiss()
     

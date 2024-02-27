@@ -53,6 +53,10 @@ extension WeatherViewController: WeatherViewEventHandler {
 // MARK: - WeatherViewPresenterInput
 
 extension WeatherViewController: WeatherPresenterOutput {
+    var isAlertShowing: Bool {
+        presentedViewController as? UIAlertController != nil
+    }
+    
     func dismiss() {
         dismiss(animated: true)
     }
