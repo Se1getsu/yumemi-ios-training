@@ -103,38 +103,38 @@ private extension WeatherView {
     func setUpLayout() {
         let safeArea = safeAreaLayoutGuide
         
-        weatherFrame.snp.makeConstraints {
-            $0.center.equalTo(safeArea)
-            $0.width.equalTo(safeArea).multipliedBy(0.5)
+        weatherFrame.snp.makeConstraints { make in
+            make.center.equalTo(safeArea)
+            make.width.equalTo(safeArea).multipliedBy(0.5)
         }
-        weatherImageView.snp.makeConstraints {
-            $0.top.left.right.equalTo(weatherFrame)
-            $0.height.equalTo(weatherImageView.snp.width)
+        weatherImageView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(weatherFrame)
+            make.height.equalTo(weatherImageView.snp.width)
         }
-        weatherImagePlaceholderLabel.snp.makeConstraints {
-            $0.edges.equalTo(weatherImageView)
+        weatherImagePlaceholderLabel.snp.makeConstraints { make in
+            make.edges.equalTo(weatherImageView)
         }
-        minimumTemperatureLabel.snp.makeConstraints {
-            $0.top.equalTo(weatherImageView.snp.bottom)
-            $0.bottom.equalTo(weatherFrame)
-            $0.leading.equalTo(weatherImageView)
-            $0.width.equalTo(weatherImageView).multipliedBy(0.5)
+        minimumTemperatureLabel.snp.makeConstraints { make in
+            make.top.equalTo(weatherImageView.snp.bottom)
+            make.bottom.equalTo(weatherFrame)
+            make.leading.equalTo(weatherImageView)
+            make.width.equalTo(weatherImageView).multipliedBy(0.5)
         }
-        highTemperatureLabel.snp.makeConstraints {
-            $0.top.equalTo(weatherImageView.snp.bottom)
-            $0.trailing.equalTo(weatherImageView)
-            $0.width.equalTo(weatherImageView).multipliedBy(0.5)
+        highTemperatureLabel.snp.makeConstraints { make in
+            make.top.equalTo(weatherImageView.snp.bottom)
+            make.trailing.equalTo(weatherImageView)
+            make.width.equalTo(weatherImageView).multipliedBy(0.5)
         }
-        closeButton.snp.makeConstraints {
-            $0.top.equalTo(minimumTemperatureLabel.snp.bottom).offset(80)
-            $0.centerX.equalTo(minimumTemperatureLabel)
+        closeButton.snp.makeConstraints { make in
+            make.top.equalTo(minimumTemperatureLabel.snp.bottom).offset(80)
+            make.centerX.equalTo(minimumTemperatureLabel)
         }
-        reloadButton.snp.makeConstraints {
-            $0.top.equalTo(highTemperatureLabel.snp.bottom).offset(80)
-            $0.centerX.equalTo(highTemperatureLabel)
+        reloadButton.snp.makeConstraints { make in
+            make.top.equalTo(highTemperatureLabel.snp.bottom).offset(80)
+            make.centerX.equalTo(highTemperatureLabel)
         }
-        activityIndicator.snp.makeConstraints {
-            $0.edges.equalTo(safeArea)
+        activityIndicator.snp.makeConstraints { make in
+            make.edges.equalTo(safeArea)
         }
     }
     

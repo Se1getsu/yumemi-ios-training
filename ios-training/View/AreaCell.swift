@@ -90,26 +90,26 @@ private extension AreaCell {
     }
     
     func setUpLayout() {
-        weatherImageView.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(8)
-            $0.centerY.equalTo(contentView)
-            $0.width.height.equalTo(32)
+        weatherImageView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).offset(8)
+            make.centerY.equalTo(contentView)
+            make.width.height.equalTo(32)
         }
-        areaLabel.snp.makeConstraints {
-            $0.leading.equalTo(weatherImageView.snp.trailing).offset(8)
-            $0.trailing.equalTo(minimumTemperatureLabel.snp.leading)
-            $0.centerY.equalTo(contentView)
-            $0.height.equalTo(44)
+        areaLabel.snp.makeConstraints { make in
+            make.leading.equalTo(weatherImageView.snp.trailing).offset(8)
+            make.trailing.equalTo(minimumTemperatureLabel.snp.leading)
+            make.centerY.equalTo(contentView)
+            make.height.equalTo(44)
         }
-        highTemperatureLabel.snp.makeConstraints {
-            $0.trailing.equalTo(contentView).inset(8)
-            $0.centerY.equalTo(contentView)
-            $0.size.equalTo(CGSize(width: 38, height: 44))
+        highTemperatureLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(contentView).inset(8)
+            make.centerY.equalTo(contentView)
+            make.size.equalTo(CGSize(width: 38, height: 44))
         }
-        minimumTemperatureLabel.snp.makeConstraints {
-            $0.trailing.equalTo(highTemperatureLabel.snp.leading)
-            $0.centerY.equalTo(contentView)
-            $0.size.equalTo(CGSize(width: 38, height: 44))
+        minimumTemperatureLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(highTemperatureLabel.snp.leading)
+            make.centerY.equalTo(contentView)
+            make.size.equalTo(CGSize(width: 38, height: 44))
         }
     }
 }

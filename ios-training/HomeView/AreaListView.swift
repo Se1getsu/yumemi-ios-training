@@ -84,11 +84,11 @@ private extension AreaListView {
     func setUpLayout() {
         let safeArea = safeAreaLayoutGuide
         
-        tableView.snp.makeConstraints {
-            $0.edges.equalTo(safeArea)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(safeArea)
         }
-        activityIndicator.snp.makeConstraints {
-            $0.edges.equalTo(safeArea)
+        activityIndicator.snp.makeConstraints { make in
+            make.edges.equalTo(safeArea)
         }
     }
     
