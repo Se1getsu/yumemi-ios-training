@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 /// AreaListViewControllerのUIの配置を行う
 final class AreaListView: UIView {
@@ -83,21 +84,12 @@ private extension AreaListView {
     func setUpLayout() {
         let safeArea = safeAreaLayoutGuide
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
-        ])
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            activityIndicator.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            activityIndicator.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            activityIndicator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            activityIndicator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
-        ])
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(safeArea)
+        }
+        activityIndicator.snp.makeConstraints { make in
+            make.edges.equalTo(safeArea)
+        }
     }
     
     /// 画面のイベント処理を登録する

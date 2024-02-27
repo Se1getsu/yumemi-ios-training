@@ -32,6 +32,7 @@
 		C96D2A152B85C8B900746EF7 /* AreaListPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A142B85C8B900746EF7 /* AreaListPresenterInput.swift */; };
 		C96D2A172B85C8C700746EF7 /* AreaListPresetnerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A162B85C8C700746EF7 /* AreaListPresetnerOutput.swift */; };
 		C96D2A1A2B85D3CB00746EF7 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96D2A192B85D3CB00746EF7 /* AreaCell.swift */; };
+		C96D2A222B8C8E8800746EF7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C96D2A212B8C8E8800746EF7 /* SnapKit */; };
 		C99C9C9C2B7B65760090D5D0 /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C9C9B2B7B65760090D5D0 /* AlertMaker.swift */; };
 		C9AB86B52B7E08C500B24D6A /* AreaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B42B7E08C500B24D6A /* AreaListViewController.swift */; };
 		C9AB86B72B7EFE8000B24D6A /* WeatherInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB86B62B7EFE8000B24D6A /* WeatherInfoRepository.swift */; };
@@ -110,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C969708A2B7AFE4400AC4675 /* YumemiWeather in Frameworks */,
+				C96D2A222B8C8E8800746EF7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +292,7 @@
 			name = "ios-training";
 			packageProductDependencies = (
 				C96970892B7AFE4400AC4675 /* YumemiWeather */,
+				C96D2A212B8C8E8800746EF7 /* SnapKit */,
 			);
 			productName = "ios-training";
 			productReference = C96970552B7AFDDF00AC4675 /* ios-training.app */;
@@ -366,6 +369,7 @@
 			packageReferences = (
 				C96970882B7AFE4400AC4675 /* XCRemoteSwiftPackageReference "ios-training" */,
 				C969708B2B7B240600AC4675 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				C96D2A202B8C8E8800746EF7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = C96970562B7AFDDF00AC4675 /* Products */;
 			projectDirPath = "";
@@ -797,6 +801,14 @@
 				minimumVersion = 0.54.0;
 			};
 		};
+		C96D2A202B8C8E8800746EF7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -809,6 +821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C969708B2B7B240600AC4675 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
+		};
+		C96D2A212B8C8E8800746EF7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C96D2A202B8C8E8800746EF7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
