@@ -93,7 +93,7 @@ private extension AreaCell {
         weatherImageView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(8)
             make.centerY.equalTo(contentView)
-            make.width.height.equalTo(32)
+            make.size.equalTo(32)
         }
         areaLabel.snp.makeConstraints { make in
             make.leading.equalTo(weatherImageView.snp.trailing).offset(8)
