@@ -90,9 +90,7 @@ extension WeatherViewController: WeatherPresenterOutput {
             didTapRetry: { [unowned self] _ in
                 presenter.didTapRetry()
             },
-            didTapCancel: { [unowned self] _ in
-                presenter.didTapCancel()
-            }
+            didTapCancel: nil
         )
         present(alert, animated: true)
         myView.weatherImageView.image = nil

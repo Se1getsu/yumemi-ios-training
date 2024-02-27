@@ -23,7 +23,4 @@ protocol WeatherPresenterInput {
     
     /// アラートのRetryボタンが押された時の処理
     func didTapRetry()
-    
-    /// アラートのCancelボタンが押された時の処理
-    func didTapCancel()
 }

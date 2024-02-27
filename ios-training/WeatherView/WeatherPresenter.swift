@@ -61,8 +61,6 @@ extension WeatherPresenter: WeatherPresenterInput {
     func didTapRetry() {
         loadWeather()
     }
-    
-    func didTapCancel() {}
 }
 
 // MARK: - Private
